@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- charser id-->
+	<meta charset="utf-8"/>
+    <!-- View Port ID -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--Style Sheet Link -->
+    <link rel="stylesheet" type="text/css" href="css/Styles.css" />
+    <!--Favicon Link Link -->
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <!-- Add jQuery 3.2.1 -->
+    <script type="text/javascript" src="js/jquery3.2.1.js"></script>
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="Default.aspx">
+                    <img src="media/ico/control-ico/png/home.png" alt="homebutton" />
+                    <p>Home</p>
+                </a>
+            </li>
+            <li>
+                <a href="ProductControl.aspx">
+                    <img src="media/ico/control-ico/png/tag.png" alt="Add Product" />
+                    <p>Products</p>
+                </a>
+            </li>
+            <li>
+                <a href="CustomerControl.aspx">
+                    <img src="media/ico/control-ico/png/customers.png" alt="Add Product" />
+                    <p>Users</p>
+                </a>
+            </li>
+            <li>
+                <a href="DeliveryControl.aspx">
+                    <img src="media/ico/control-ico/png/cal.png" alt="Add Product" />
+                    <p>Delivery</p>
+                </a>
+            </li>
+            <li>
+                <a href="OrderControl.aspx">
+                    <img src="media/ico/control-ico/png/lists.png" alt="Add Product" />
+                    <p>Orders</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="media/ico/control-ico/png/database.png" alt="Add Product" />
+                    <p>View All</p>
+                </a>
+            </li>
+            <li>
+                <a href="../Admin.aspx">
+                    <img src="media/ico/control-ico/png/exit.png" alt="Log Out" />
+                    <p>Log Out</p>
+                </a>
+                
+            </li>
+        </ul>
+    </header>
+    <main class="control-page">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </main>
+    <footer>
+
+    </footer>
+    <!-- Script link -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+    
+</body>
+</html>

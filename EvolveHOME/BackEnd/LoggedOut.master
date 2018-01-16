@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>eVolveHOME Control Panel</title>
+    <!-- charser id-->
+	<meta charset="utf-8"/>
+    <!-- View Port ID -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--Style Sheet Link -->
+    <link rel="stylesheet" type="text/css" href="ExternalStyles.css" />
+    <!--Favicon Link Link -->
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</body>
+</html>

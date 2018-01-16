@@ -1,0 +1,9 @@
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\FrontEnd.dll.config
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\FrontEnd.dll
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\FrontEnd.pdb
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\obj\Debug\FrontEnd.csprojResolveAssemblyReference.cache
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\obj\Debug\FrontEnd.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\obj\Debug\FrontEnd.dll
+C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\obj\Debug\FrontEnd.pdb
