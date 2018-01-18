@@ -33,7 +33,8 @@ public class clsDataConnection
         //build up the connection string for the sql server database Visual Studio 2012
         //connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + GetDBName() + ";Integrated Security=True;Connect Timeout=30";
         //connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"" + GetDBName() + "\";Integrated Security=True;Connect Timeout=30";
-        connectionString = "Server=tcp:evolvesystems.database.windows.net,1433;Initial Catalog=Evolve;Persist Security Info=False;User ID={ReubenPorter};Password={ComputingBSC1};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        //connectionString = "Server=tcp:evolvesystems.database.windows.net,1433;Initial Catalog=Evolve;Persist Security Info=False;User ID={ReubenPorter};Password={ComputingBSC1};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        connectionString = "Data Source=evolvesystems.database.windows.net;Initial Catalog=Evolve;Persist Security Info=True;User ID=ReubenPorter;Password=ComputingBSC1";
     }
 
     public string GetDBName()

@@ -19,7 +19,7 @@
         string Description = txtDescription.Text;
         string Dimentions = txtDimentions.Text;
         // Displayed reponse label
-        string AddLabel = lblAdd.Text;
+        //string AddLabel = lblAdd.Text;
         //If the data is OK, add it to the object
         if (OK == true)
         {
@@ -31,13 +31,13 @@
             HomeProduct.ThisHomeProduct.Dimentions = Dimentions;
             HomeProduct.Add();
             //Set label to show success message
-            AddLabel = "Added";
+            lblAdd.Text = "New Product Has Been Added";
 
         }
         else
         {
             // Display an error
-            AddLabel = "Try Again";
+            lblAdd.Text = "Please Try Again";
         }
     }
 </script>
@@ -107,7 +107,7 @@
                     </table>
                     
                     <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add New" class="button" />
-                    <asp:Label ID="lblAdd" CssClass="label" runat="server"></asp:Label>
+                    <asp:Label ID="lblAdd" CssClass="label" runat="server">Message</asp:Label>
                     </form>
                 </article>
 
@@ -219,7 +219,7 @@
                                     %>
                                     <tr>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].ProductID); %></td>
-                                        <td><%Response.Write(HomeProductList.HomeProductList[Index].Name); %></td>
+                                        <td id="title"><%Response.Write(HomeProductList.HomeProductList[Index].Name); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Price); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Type); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Collection); %></td>

@@ -62,7 +62,7 @@ namespace ClassControlLib
         }
         
 
-        public int Count { get; set; }
+        public int Count { get { return mHomeProductList.Count; } set { } }
 
         public int Add()
         {

@@ -89,12 +89,7 @@ namespace ClassControlLib
 
         public bool Find(Int32 productID)
         {
-            throw new NotImplementedException();
-
-            // Db connection is required to run the find method
-
-
-            /*
+            
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the productID to the search
             DB.AddParameter("@ProductID", ProductID);
@@ -105,12 +100,12 @@ namespace ClassControlLib
             {
                 //copy from the DB to the private data members
                 mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
-                mName = Convert.ToInt32(DB.DataTable.Rows[0]["Name"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
                 mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
-                mType = Convert.ToInt32(DB.DataTable.Rows[0]["Type"]);
-                mCollection = Convert.ToInt32(DB.DataTable.Rows[0]["Collection"]);
-                mDescription = Convert.ToInt32(DB.DataTable.Rows[0]["Description"]);
-                mDimentions = Convert.ToInt32(DB.DataTable.Rows[0]["Dimentions"]);
+                mType = Convert.ToString(DB.DataTable.Rows[0]["Type"]);
+                mCollection = Convert.ToString(DB.DataTable.Rows[0]["Collection"]);
+                mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mDimentions = Convert.ToString(DB.DataTable.Rows[0]["Dimentions"]);
 
                 //return that everything worked
                 return true;
@@ -122,7 +117,7 @@ namespace ClassControlLib
                 return false;
             }
 
-            */
+            
         }
     }
 }
