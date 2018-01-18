@@ -4,3 +4,9 @@ C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\Evolv
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\ClassControlLib\bin\Debug\ClassControlLib.pdb
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.dll
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.pdb
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\bin\Debug\ClassControlLib.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\bin\Debug\ClassControlLib.pdb
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.csprojResolveAssemblyReference.cache
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.csproj.CoreCompileInputs.cache
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\ClassControlLib\obj\Debug\ClassControlLib.pdb

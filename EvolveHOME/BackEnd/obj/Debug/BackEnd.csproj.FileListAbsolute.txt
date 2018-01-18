@@ -9,3 +9,14 @@ C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\Evolv
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\BackEnd\bin\ClassControlLib.dll
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\BackEnd\bin\ClassControlLib.pdb
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\BackEnd\obj\Debug\BackEnd.csprojResolveAssemblyReference.cache
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\BackEnd.dll.config
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\BackEnd.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\BackEnd.pdb
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\ClassControlLib.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\ClassControlLib.pdb
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\obj\Debug\BackEnd.csprojResolveAssemblyReference.cache
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\obj\Debug\BackEnd.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\BackEnd\obj\Debug\BackEnd.pdb

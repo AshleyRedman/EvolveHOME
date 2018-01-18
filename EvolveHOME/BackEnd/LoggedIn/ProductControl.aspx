@@ -10,7 +10,7 @@
         ClassControlLib.clsHomeProductCollection HomeProduct = new ClassControlLib.clsHomeProductCollection();
         
         //Validation Here
-        Boolean OK = HomeProduct.ThisHomeProduct.Valid(txtName.Text, txtPrice.Text, txtType.Text, txtCollection.Text, txtDescription.Text, txtDimentions.Text);
+        Boolean OK = HomeProduct.ThisHomeProduct.Valid(txtName.Text, Convert.ToInt32(txtPrice.Text), txtType.Text, txtCollection.Text, txtDescription.Text, txtDimentions.Text);
         // Set variables for the text elements
         string Name = txtName.Text;
         Int32 Price = Convert.ToInt32(txtPrice.Text);
@@ -24,7 +24,7 @@
         if (OK == true)
         {
             HomeProduct.ThisHomeProduct.Name = Name;
-            //HomeProduct.ThisHomeProduct.Price = Price;
+            HomeProduct.ThisHomeProduct.Price = Price;
             HomeProduct.ThisHomeProduct.Type = Type;
             HomeProduct.ThisHomeProduct.Collection = Collection;
             HomeProduct.ThisHomeProduct.Description = Description;
@@ -53,17 +53,18 @@
             <aside>
                 <article class="obj-add">
                     <h4>Add a New Product</h4>
+                    <form runat="server">
                     <table class="product-form" id="add-form">
                         <tr>
                             <td>Product Name</td>
                             <td>
-                                <asp:TextBox ID="txtName" runat="server" class="TextBox" placeholder="Product Name"></asp:TextBox>
+                                    <asp:TextBox ID="txtName" runat="server" class="TextBox" placeholder="Product Name"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td>Product Price</td>
                             <td>
-                                <asp:TextBox ID="txtPrice" runat="server" class="TextBox" placeholder="Price"></asp:TextBox>
+                                    <asp:TextBox ID="txtPrice" runat="server" class="TextBox" placeholder="Price"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -104,8 +105,10 @@
                             </td>
                         </tr>
                     </table>
+                    
                     <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add New" class="button" />
                     <asp:Label ID="lblAdd" CssClass="label" runat="server"></asp:Label>
+                    </form>
                 </article>
 
 
@@ -208,14 +211,14 @@
                     <tbody>
                         
                             <%
-                                ClassLibrary.clsHomeProductCollection HomeProductList = new ClassLibrary.clsHomeProductCollection();
+                                ClassControlLib.clsHomeProductCollection HomeProductList = new ClassControlLib.clsHomeProductCollection();
                                 Int32 Index = 0;
                                 Int32 RecordCount = HomeProductList.Count;
                                 while (Index < RecordCount)
                                 {
                                     %>
                                     <tr>
-                                        <td><%Response.Write(HomeProductList.HomeProductList[Index].ProductNo); %></td>
+                                        <td><%Response.Write(HomeProductList.HomeProductList[Index].ProductID); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Name); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Price); %></td>
                                         <td><%Response.Write(HomeProductList.HomeProductList[Index].Type); %></td>
