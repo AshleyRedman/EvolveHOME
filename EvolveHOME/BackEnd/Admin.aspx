@@ -1,8 +1,26 @@
 ﻿<%@ Page Title="eVolveHOME Admin" Language="C#" MasterPageFile="~/LoggedOut.master" %>
 
+<script runat="server">
+
+    protected void btnsign_Click(object sender, EventArgs e)
+    {
+
+        Response.Redirect("LoggedIn/Default.aspx");
+    }
+
+
+
+
+</script>
+
+
+
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <section>
+        <form runat="server">
         <table>
             <tr>
                 <th>Login Here</th>
@@ -10,13 +28,13 @@
             <tr>
                 <td>User ID</td>
                 <td>
-                    <input type="text" value="" />
+                    <asp:TextBox runat="server" ID="txtUsername" placeholder="username"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="password" value="" />
+                    <asp:TextBox runat="server" ID="txtPassword" placeholder="password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -24,13 +42,11 @@
 
                 </td>
                 <td>
-                    <a href="LoggedIn/Default.aspx">
-                        <input type="submit" value="LogIn" />
-                    </a>
-                    
+                    <asp:Button runat="server" ID="btnsign" OnClick="btnsign_Click" Text="Sign In" />
                 </td>
             </tr>
         </table>
+        </form>
     </section>
 </asp:Content>
 
