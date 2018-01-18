@@ -153,6 +153,42 @@ namespace TestControl
         public void HomeProductUpdatMethodOK()
         {
             // needs looking into as data is displayed via a lopp in a html table and not a asp listbox
+
+            //create an instance of the class we want to create
+            clsHomeProductCollection AllHomeProducts = new clsHomeProductCollection();
+            //create the item of test data
+            clsHomeProduct TestItem = new clsHomeProduct();
+            //var to store the PK
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Name = "Name";
+            TestItem.Price = 31;
+            TestItem.Type = "Type";
+            TestItem.Collection = "Collection";
+            TestItem.Description = "Description";
+            TestItem.Dimentions = "Dimentions";
+            //set ThisProduct to the test data
+            AllHomeProducts.ThisHomeProduct = TestItem;
+            //add the record
+            PrimaryKey = AllHomeProducts.Add();
+            //set the primary key of the test data
+            TestItem.ProductID = PrimaryKey;
+            //Modify the tests data
+            TestItem.Name = "2Name";
+            TestItem.Price = 88;
+            TestItem.Type = "2Type";
+            TestItem.Collection = "2Collection";
+            TestItem.Description = "2Description";
+            TestItem.Dimentions = "2Dimentions";
+            //set the record based on the new tests data
+            AllHomeProducts.ThisHomeProduct = TestItem;
+            //update the record
+            AllHomeProducts.Update();
+            //find the record
+            AllHomeProducts.ThisHomeProduct.Find(PrimaryKey);
+            //test to see this product matches the tests data
+            Assert.AreEqual(AllHomeProducts.ThisHomeProduct, TestItem);
+
         }
 
         [TestMethod]

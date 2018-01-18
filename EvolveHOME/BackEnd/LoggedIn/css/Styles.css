@@ -207,6 +207,12 @@ input[type=submit] {
     align-items: center;
 }
 
+#CRUDcontrol li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
 .product-form {
     margin-top: 20px;
     color: #000;

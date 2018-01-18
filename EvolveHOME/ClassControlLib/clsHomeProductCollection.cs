@@ -87,5 +87,10 @@ namespace ClassControlLib
             //execute the sproc
             DB.Execute("sproc_tblHomeProduct_Delete");
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

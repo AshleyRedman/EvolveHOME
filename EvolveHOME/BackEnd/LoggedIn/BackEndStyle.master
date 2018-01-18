@@ -50,12 +50,6 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img src="media/ico/control-ico/png/database.png" alt="Add Product" />
-                    <p>View All</p>
-                </a>
-            </li>
-            <li>
                 <a href="../Admin.aspx">
                     <img src="media/ico/control-ico/png/exit.png" alt="Log Out" />
                     <p>Log Out</p>
