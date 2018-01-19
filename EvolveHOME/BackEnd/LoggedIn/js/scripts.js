@@ -1,8 +1,4 @@
-﻿/*
- * 
- * 
- */
-
+﻿
 
 // Quick Table Search
 $('#search').keyup(function () {

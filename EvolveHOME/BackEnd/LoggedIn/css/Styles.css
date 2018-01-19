@@ -207,10 +207,17 @@ input[type=submit] {
     align-items: center;
 }
 
+#CRUDcontrol {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 #CRUDcontrol li {
     list-style-type: none;
     display: flex;
     justify-content: center;
+    padding-top: 50px;
+    
 }
 
 .product-form {

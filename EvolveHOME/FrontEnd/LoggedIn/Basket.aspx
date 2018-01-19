@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Your Basket" Language="C#" MasterPageFile="~/StylePage.master" %>
+﻿<%@ Page Title="Your Basket" Language="C#" MasterPageFile="LoggedIm.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <section id="BasketDisplay">
@@ -17,7 +17,7 @@
                 <td>00000001</td>
                 <td>Zara Cuddle Chair</td>
                 <td>
-                    <img src="media/img/product/1sofa.jpg" alt="sofa1" />
+                    <img src="../media/img/product/1sofa.jpg" alt="sofa1" />
                 </td>
                 <td>
                     Add a touch of luxury
@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     <a href="#">
-                        <img src="media/img/icons/bin.svg" alt="bin icon" id="binIcon" />
+                        <img src="../media/img/icons/bin.svg" alt="bin icon" id="binIcon" />
                     </a>
                 </td>
             </tr>

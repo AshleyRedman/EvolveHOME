@@ -1,18 +1,21 @@
-﻿<%@ Page Title="Product Update" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" AutoEventWireup="true" CodeBehind="ProductUpdate.aspx.cs" Inherits="BackEnd.LoggedIn.ProductUpdate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" AutoEventWireup="true" CodeBehind="ProductDelete.aspx.cs" Inherits="BackEnd.LoggedIn.ProductDelete" %>
+
 
 <script runat="server">
 
-
-    protected void btnFind_Click(object sender, EventArgs e)
+    protected void btnDelete_Click(object sender, EventArgs e)
     {
-        
+        ClassControlLib.clsHomeProductCollection HomeProducts = new ClassControlLib.clsHomeProductCollection();
+        Int32 RemovedProduct;
 
-        
-    }
+        RemovedProduct = Convert.ToInt32(txtDeleteID.Text);
 
-    protected void btnUpdate_Click(object sender, EventArgs e)
-    {
-        //var to store the PK
+        HomeProducts.ThisHomeProduct.Find(RemovedProduct);
+
+        HomeProducts.Delete();
+
+        lblError.Text = "Product Removed";
+
 
     }
 
@@ -22,50 +25,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="content-area">
         <section class="page-title">
-            <h2>Update a current product</h2>
+            <h2>Delete a Product</h2>
             <h4>Logged In:  <span>Admin Name</span></h4>
         </section>
         <section class="obj-control">
             <aside>
-                <article class="obj-edit">
+                <article class="obj-del">
                     <form runat="server">
-                    <h5>Enter the Product ID and select Find Record</h5>
-                    <asp:Button runat="server" ID="btnFind" Text="Find Record" OnClick="btnFind_Click" />
-                    <table class="product-form" id="edit-form">
+                    <table class="product-form" id="del-form">
                         <tr>
-                            <td>Product Itentifier</td>
+                            <td>Enter Product Itentifier</td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtFindProductID" placeholder="Enter PK"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtDeleteID"></asp:TextBox>
+                                <asp:Button Text="Delete Product" runat="server" ID="btnDelete" OnClick="btnDelete_Click" />
                             </td>
                         </tr>
-                        <tr>
-                            <td>Product Name</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdateName"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td>Product Price</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdatePrice"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td>Product Type</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdateType"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td>Product Collection</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdateCollection"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td>Description</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdateDescription" Columns="30" Rows="3"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td>Dimentions</td>
-                            <td><asp:TextBox runat="server" ID="txtUpdateDimentions"></asp:TextBox></td>
-                        </tr>
                     </table>
-                    <asp:Button runat="server" ID="btnUpdate" Text="Update" onClick="btnUpdate_Click"/>
-                    <asp:Label ID="lblUpdate" CssClass="label" runat="server">Message</asp:Label>
-                 </form>
+                    <asp:Label Text="" runat="server" ID="lblError" />
+                    </form>
                 </article>
             </aside>
             <aside>

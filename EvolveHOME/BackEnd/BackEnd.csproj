@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoggedIn\ProductAdd.aspx" />
+    <Content Include="LoggedIn\ProductDelete.aspx" />
     <Content Include="LoggedIn\ProductUpdate.aspx" />
     <Content Include="LoggedOut.master" />
     <Content Include="LoggedIn\BackEndStyle.master" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="LoggedIn\ProductAdd.aspx.designer.cs">
       <DependentUpon>ProductAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedIn\ProductDelete.aspx.cs">
+      <DependentUpon>ProductDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedIn\ProductDelete.aspx.designer.cs">
+      <DependentUpon>ProductDelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoggedIn\ProductUpdate.aspx.cs">
       <DependentUpon>ProductUpdate.aspx</DependentUpon>

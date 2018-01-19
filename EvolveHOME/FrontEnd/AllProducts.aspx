@@ -61,28 +61,28 @@
                     <div>
                         <h4>Title</h4>
                         <img src="media/img/product/1sofa.jpg" alt="sofa1" />
-                        <a href="ProductDetail.aspx" class="ViewButton">View</a>
+                        <a href="Products/StandardSofa.aspx" class="ViewButton">View</a>
                     </div>
                 </td>
                 <td>
                     <div>
                         <h4>Title</h4>
                         <img src="media/img/product/2sofa.jpg" alt="sofa1" />
-                        <a href="#" class="ViewButton">View</a>
+                        <a href="Products/BiggerSofa.aspx" class="ViewButton">View</a>
                     </div>
                 </td>
                 <td>
                     <div>
                         <h4>Title</h4>
                         <img src="media/img/product/3sofa.jpg" alt="sofa1" />
-                        <a href="#" class="ViewButton">View</a>
+                        <a href="Products/BiggestSofa.aspx" class="ViewButton">View</a>
                     </div>
                 </td>
                 <td>
                     <div>
                         <h4>Title</h4>
                         <img src="media/img/product/4sofa.jpg" alt="sofa1" />
-                        <a href="#" class="ViewButton">View</a>
+                        <a href="Products/GreyLegSupport.aspx" class="ViewButton">View</a>
                     </div>
                 </td>
             </tr>

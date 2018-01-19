@@ -317,24 +317,7 @@
             </form>
         </article>
         <article>
-            <h3>Returning Customer</h3>
-            <form>
-                <table>
-                    <tr>
-                        <td>Email</td>
-                        <td>
-                            <input type="email" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td>
-                            <input type="password" value="" />
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" value="Log In" />
-            </form>
+            
         </article>
     </section>
 </asp:Content>

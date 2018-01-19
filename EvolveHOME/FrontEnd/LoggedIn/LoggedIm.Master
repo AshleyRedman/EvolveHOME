@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LoggedIm.master.cs" Inherits="FrontEnd.LoggedIn.LoggedIm" %>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,22 +10,20 @@
     <!-- View Port ID -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!--Style Sheet Link -->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
     <!--Favicon Link Link -->
     <link rel="shortcut icon" href="media/img/favicon.ico" />
 </head>
 <body>
     <header>
-        <a href="Default.aspx"><h1 id="logo">eVolve HOME</h1></a>
-        <img src="media/img/ham.svg" id="menu" alt="menubutton"/>
+        <a href="../Default.aspx"><h1 id="logo">eVolve HOME</h1></a>
+        <img src="../media/img/ham.svg" id="menu" alt="menubutton"/>
         <nav id="nav-menu">
             <ul>
                 <li><a href="AllProducts.aspx">All Products</a></li>
                 <li><a href="Collections.aspx">Collections</a></li>
                 <li><a href="Contact.aspx">Contact Us</a></li>
                 <li><a href="Social.aspx">Social</a></li>
-                <li><a href="Login.aspx">Login</a></li>
-                <li><a href="SignUp.aspx">Sign Up</a></li>
             </ul>
         </nav>
     </header>

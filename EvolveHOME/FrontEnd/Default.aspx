@@ -1,18 +1,56 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/StylePage.master" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
 
 <script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString);
+        {
+            //create so,e vars to hold the sql query
+            string feature1 = "select Description from tblHomeProducts where ProductID = 20";
+            string feature2 = "select Description from tblHomeProducts where ProductID = 22";
+            string feature3 = "select Description from tblHomeProducts where ProductID = 26";
+            //prop the sql command to gain result
+            SqlCommand showFeature1 = new SqlCommand(feature1, con);
+            SqlCommand showFeature2 = new SqlCommand(feature2, con);
+            SqlCommand showFeature3 = new SqlCommand(feature3, con);
+            //open db connection
+            con.Open();
+            //set the label text property to the result of the query in string format
+            lblFeature1.Text = showFeature1.ExecuteScalar().ToString();
+            lblFeature2.Text = showFeature2.ExecuteScalar().ToString();
+            lblFeature3.Text = showFeature3.ExecuteScalar().ToString();
+            // close the db connection
+            con.Close();
+        }
+
+    }
+
+    protected void btnViewFeature1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Products/StandardSofa.aspx");
+    }
+    protected void btnViewFeature2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Products/BiggerSofa.aspx");
+    }
+    protected void btnViewFeature3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Products/GreyLegSupport.aspx");
+    }
+
+
 
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <form runat="server">
     <section id="hero">
         <div>
-            <h1>Text Here</h1>
-            <h4>Lorem ipsum dolor sit amet, lectus vitae faucibus,
-                at diam donec, pede velit sapien, dolor sapien 
-                tristique convallis. Orci pharetra vel placerat 
-                gravida, dolor odio quia eleifend eu, diam a praesent
-                gravida bibendum.
+            <h1>Welcome to eVolve Home</h1>
+            <h4>The great alternative to Ikea?
             </h4>
         </div>
     </section>
@@ -20,29 +58,18 @@
     <section id="featured-items">
         <article class="featured">
             <img src="media/img/product/1sofa.jpg" alt="Alternate Text" />
-            <p>
-               Lorem ipsum dolor sit amet, lectus vitae faucibus,
-               at diam donec, pede velit sapien, dolor sapien 
-               tristique convallis.
-            </p>
-            <a href="#" class="ViewButton">View</a>
+            <p><asp:Label Text="" runat="server" ID="lblFeature1" /></p>
+            <asp:Button Text="View" runat="server" ID="btnViewFeature1" OnClick="btnViewFeature1_Click" class="Buttons" />
         </article>
         <article class="featured">
             <img src="media/img/product/2sofa.jpg" alt="Alternate Text" />
-            <p>
-               Lorem ipsum dolor sit amet, lectus vitae faucibus,
-               at diam donec, pede velit sapien, dolor sapien 
-               tristique convallis.
-            </p>
-            <a href="#" class="ViewButton">View</a>
+            <p><asp:Label Text="" runat="server" ID="lblFeature2" /></p>
+            <asp:Button Text="View" runat="server" ID="btnViewFeature2" OnClick="btnViewFeature2_Click" class="Buttons" />
         </article>
         <article class="featured">
-            <img src="media/img/product/3sofa.jpg" alt="Alternate Text" /><p>
-               Lorem ipsum dolor sit amet, lectus vitae faucibus,
-               at diam donec, pede velit sapien, dolor sapien 
-               tristique convallis.
-            </p>
-            <a href="#" class="ViewButton">View</a>
+            <img src="media/img/product/4sofa.jpg" alt="Alternate Text" />
+            <p><asp:Label Text="" runat="server" ID="lblFeature3" /></p>
+            <asp:Button Text="View" runat="server" ID="btnViewFeature3" OnClick="btnViewFeature3_Click" class="Buttons" />
         </article>
     </section>
     <section id="offers">
@@ -63,5 +90,6 @@
             <h3>Options for everyone</h3>
         </article>
     </section>
+    </form>
 </asp:Content>
 

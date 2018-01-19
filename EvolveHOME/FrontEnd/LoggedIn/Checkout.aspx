@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Checkout" Language="C#" MasterPageFile="~/StylePage.master" %>
+﻿<%@ Page Title="Checkout" Language="C#" MasterPageFile="LoggedIm.master" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">

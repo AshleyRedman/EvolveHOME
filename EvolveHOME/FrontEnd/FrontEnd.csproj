@@ -66,8 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LoggedIn\LoggedIm.Master" />
     <None Include="packages.config" />
+    <Content Include="LogIn.aspx" />
+    <Content Include="Products\BiggerSofa.aspx" />
+    <Content Include="Products\BiggestSofa.aspx" />
+    <Content Include="Products\GreyLegSupport.aspx" />
     <Content Include="StylePage.master" />
+    <Content Include="Products\ProductDetail.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -77,20 +83,62 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AllProducts.aspx" />
-    <Content Include="Basket.aspx" />
-    <Content Include="Checkout.aspx" />
-    <Content Include="ChooseDelivery.aspx" />
+    <Content Include="LoggedIn\Basket.aspx" />
+    <Content Include="LoggedIn\Checkout.aspx" />
+    <Content Include="LoggedIn\ChooseDelivery.aspx" />
     <Content Include="Collections.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\Styles.css" />
     <Content Include="Default.aspx" />
     <Content Include="js\scripts.js" />
-    <Content Include="ProductDetail.aspx" />
+    <Content Include="Products\StandardSofa.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Social.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoggedIn\LoggedIm.Master.cs">
+      <DependentUpon>LoggedIm.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedIn\LoggedIm.Master.designer.cs">
+      <DependentUpon>LoggedIm.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\BiggerSofa.aspx.cs">
+      <DependentUpon>BiggerSofa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\BiggerSofa.aspx.designer.cs">
+      <DependentUpon>BiggerSofa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\BiggestSofa.aspx.cs">
+      <DependentUpon>BiggestSofa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\BiggestSofa.aspx.designer.cs">
+      <DependentUpon>BiggestSofa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\GreyLegSupport.aspx.cs">
+      <DependentUpon>GreyLegSupport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\GreyLegSupport.aspx.designer.cs">
+      <DependentUpon>GreyLegSupport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductDetail.Master.cs">
+      <DependentUpon>ProductDetail.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\ProductDetail.Master.designer.cs">
+      <DependentUpon>ProductDetail.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StylePage.master.cs">
       <DependentUpon>StylePage.master</DependentUpon>
@@ -99,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassControlLib\ClassControlLib.csproj">
+      <Project>{52000a62-b216-4203-b9dc-126b70f95881}</Project>
+      <Name>ClassControlLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

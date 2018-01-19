@@ -1,18 +1,7 @@
 ﻿<%@ Page Title="Product Control" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" %>
 
 <script runat="server">
-    protected void btnAddLink_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ProductAdd.aspx", true);
-    }
-    protected void btnUpdateLink_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ProductUpdate.aspx");
-    }
-    protected void btnDeleteLink_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ProductDelete.aspx");
-    }
+    
 
 </script>
 

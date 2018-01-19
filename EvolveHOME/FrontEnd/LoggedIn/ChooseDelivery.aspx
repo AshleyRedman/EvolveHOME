@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StylePage.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="LoggedIm.master" %>
 
 
 
