@@ -57,7 +57,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <form runat="server">
+
     <section>
         <h2><asp:Label Text="Product Namer here" runat="server" ID="lblName" /></h2>
     </section>
@@ -122,6 +122,6 @@
             </article>
         </div>
     </section>
-    </form>
+
 </asp:Content>
 

@@ -13,6 +13,15 @@ namespace BackEnd.LoggedIn.Product {
     public partial class ProductAdd {
         
         /// <summary>
+        /// lblUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUsername;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>

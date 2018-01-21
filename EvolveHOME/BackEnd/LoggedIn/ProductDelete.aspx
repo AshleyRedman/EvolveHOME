@@ -19,6 +19,14 @@
 
     }
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] != null)
+            {
+                lblUsername.Text = Session["User"].ToString();
+            }
+    }
+
 
 </script>
 
@@ -26,12 +34,12 @@
     <section class="content-area">
         <section class="page-title">
             <h2>Delete a Product</h2>
-            <h4>Logged In:  <span>Admin Name</span></h4>
+            <h4>Logged In As: <span><asp:Label Text="" runat="server" ID="lblUsername" /></span></h4>
         </section>
         <section class="obj-control">
             <aside>
                 <article class="obj-del">
-                    <form runat="server">
+
                     <table class="product-form" id="del-form">
                         <tr>
                             <td>Enter Product Itentifier</td>
@@ -42,7 +50,7 @@
                         </tr>
                     </table>
                     <asp:Label Text="" runat="server" ID="lblError" />
-                    </form>
+
                 </article>
             </aside>
             <aside>

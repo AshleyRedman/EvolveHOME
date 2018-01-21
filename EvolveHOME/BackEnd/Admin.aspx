@@ -5,33 +5,66 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblErrorMessage.Visible = false;
+        
     }
 
     protected void btnsign_Click(object sender, EventArgs e)
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString);
+        AuthenticateUser(txtUsername.Text, txtPassword.Text);
+    }
 
+     private void AuthenticateUser(string username, string password)
         {
-            con.Open();
-            string query = "select count(1) from tblRegistration where username=@username and password=@password";
-            SqlCommand sqlCmd = new SqlCommand(query, con);
-            string encryptedpassword = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
-            sqlCmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
-            sqlCmd.Parameters.AddWithValue("@password", encryptedpassword);
-            int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-            if (count ==1)
+            // ConfigurationManager class is in System.Configuration namespace
+            string CS = ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString;
+            // SqlConnection is in System.Data.SqlClient namespace
+            using (SqlConnection con = new SqlConnection(CS))
             {
-                //create the session
-                Session["username"] = txtUsername.Text.Trim();
-                Response.Redirect("LoggedIn/Default.aspx");
-            }
-            else
-            {
-                lblErrorMessage.Visible = true;
+                SqlCommand cmd = new SqlCommand("sproc_tblAccount_AuthenticateUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Formsauthentication is in system.web.security
+                string encryptedpassword = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "SHA1");
+
+                //sqlparameter is in System.Data namespace
+                SqlParameter paramUsername = new SqlParameter("@Username", username);
+                SqlParameter paramPassword = new SqlParameter("@Password", encryptedpassword);
+
+                cmd.Parameters.Add(paramUsername);
+                cmd.Parameters.Add(paramPassword);
+
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    int retryAttempts = Convert.ToInt32(rdr["RetryAttempts"]);
+
+                    if (Convert.ToInt32(rdr["UserFound"]) == 0)
+                    {
+                        lblMessage.Text = "Invalid User Name and/or Password.";
+                    }
+                    else if (Convert.ToBoolean(rdr["AccountLocked"]))
+                    {
+                        lblMessage.Text = "Account locked, please contact administrator";
+                    }
+                    else if (retryAttempts > 0)
+                    {
+                        // allowing user to attempt login 3 times
+                        int attemptsLeft = (3 - retryAttempts);
+                        lblMessage.Text = "Invalid User Name and/or Password. " +
+                            attemptsLeft.ToString() + " attempt(s) left";
+                    }
+                    else if (Convert.ToBoolean(rdr["Authenticated"]))
+                    {
+                        Session["user"] = txtUsername.Text;
+                        FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, chkBoxRememberMe.Checked);
+                    }
+                }
             }
         }
-    }
+
+
+
 </script>
 
 
@@ -60,6 +93,14 @@
                     <asp:Button runat="server" ID="btnsign" OnClick="btnsign_Click" Text="Sign In" />
                 </td>
                 <asp:Label runat="server" ID="lblErrorMessage">Please Try Again</asp:Label>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="chkBoxRememberMe" runat="server" Text="Remember Me"/>
+                </td>
+                <td>
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+                </td>
             </tr>
         </table>
         </form>

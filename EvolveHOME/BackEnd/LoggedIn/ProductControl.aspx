@@ -1,7 +1,28 @@
 ﻿<%@ Page Title="Product Control" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" %>
 
 <script runat="server">
-    
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] != null)
+        {
+            lblUsername.Text = Session["User"].ToString();
+        }
+    }
+
+    protected void btnAddLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ProductAdd.aspx");
+    }
+    protected void btnUpdateLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ProductUpdate.aspx");
+    }
+    protected void btnDeleteLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ProductDelete.aspx");
+    }
+
 
 </script>
 
@@ -11,14 +32,20 @@
     <section class="content-area">
         <section class="page-title">
             <h2>Product Control</h2>
-            <h4>Logged In:  <span>Admin Name</span></h4>
+            <h4>Logged In As: <span><asp:Label Text="" runat="server" ID="lblUsername" /></span></h4>
         </section>
         <section class="obj-control">
             <aside>
                 <ul id="CRUDcontrol">
-                    <li><a href="ProductAdd.aspx"><input type="submit" value="Add Products" /></a></li>
-                    <li><a href="ProductUpdate.aspx"><input type="submit" value="Update Products" /></a></li>
-                    <li><a href="ProductDelete.aspx"><input type="submit" value="Delete Products" /></a></li>
+                    <li>
+                        <asp:Button Text="Add Products" runat="server" ID="btnAddLink" />
+                    </li>
+                    <li>
+                        <asp:Button Text="Update Products" runat="server" ID="btnUpdateLink" />
+                    </li>
+                    <li>
+                        <asp:Button Text="Delete Product" runat="server" ID="btnDeleteLink" />
+                    </li>
                 </ul>
                   
             </aside>

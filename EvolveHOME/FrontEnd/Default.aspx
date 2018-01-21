@@ -46,7 +46,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <form runat="server">
+
     <section id="hero">
         <div>
             <h1>Welcome to eVolve Home</h1>
@@ -90,6 +90,6 @@
             <h3>Options for everyone</h3>
         </article>
     </section>
-    </form>
+
 </asp:Content>
 

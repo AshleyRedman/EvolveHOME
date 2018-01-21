@@ -1,11 +1,33 @@
 ﻿<%@ Page Title="Control Portal" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] != null)
+            {
+                lblUsername.Text = Session["User"].ToString();
+            }
+    }
+
+
+</script>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <section class="content-area">
+
         <section class="page-title">
             <h2>Warehouse Pick List</h2>
-            <h4>Logged In:  <span>Admin Name</span></h4>
+            <h4>Logged In As: <span><asp:Label Text="" runat="server" ID="lblUsername" /></span></h4>
         </section>
         <section class="quickview-area">
             <article id="today-pick">
@@ -137,6 +159,7 @@
                 </table>
             </article>
         </section>
+
     </section>
 </asp:Content>
 

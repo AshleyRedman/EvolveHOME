@@ -1,10 +1,21 @@
 ﻿<%@ Page Title="User Control" Language="C#" MasterPageFile="~/LoggedIn/BackEndStyle.master" %>
 
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] != null) {
+            lblUsername.Text = Session["User"].ToString();
+        }
+    }
+</script>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <section class="content-area">
         <section class="page-title">
             <h2>User Control</h2>
-            <h4>Logged In:  <span>Admin Name</span></h4>
+            <h4>Logged In As: <span><asp:Label Text="" runat="server" ID="lblUsername" /></span></h4>
         </section>
         <section class="obj-control">
             <aside>

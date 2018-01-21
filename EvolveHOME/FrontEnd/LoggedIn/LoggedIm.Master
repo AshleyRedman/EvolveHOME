@@ -1,5 +1,41 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LoggedIm.master.cs" Inherits="FrontEnd.LoggedIn.LoggedIm" %>
 
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] == null)
+        {
+            btnLogOut.Visible = false;
+        }
+        else
+        {
+            // Do whatever you were going to do.
+            lblUsername.Text = "Welcome Back " + Session["User"].ToString();
+            btnLogInLink.Visible = false;
+            btnSignUpLink.Visible = false;
+            btnLogOut.Visible = true;
+        }
+    }
+
+    protected void btnLogInLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../Login.aspx");
+    }
+    protected void btnSignUpLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../SignUp.aspx");
+    }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        Session.Remove("user");
+        Response.Redirect("../Default.aspx");
+    }
+
+
+
+</script>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,16 +51,22 @@
     <link rel="shortcut icon" href="media/img/favicon.ico" />
 </head>
 <body>
+    <form runat="server">
     <header>
         <a href="../Default.aspx"><h1 id="logo">eVolve HOME</h1></a>
         <img src="../media/img/ham.svg" id="menu" alt="menubutton"/>
         <nav id="nav-menu">
             <ul>
-                <li><a href="AllProducts.aspx">All Products</a></li>
-                <li><a href="Collections.aspx">Collections</a></li>
-                <li><a href="Contact.aspx">Contact Us</a></li>
-                <li><a href="Social.aspx">Social</a></li>
+                <li><a href="../AllProducts.aspx">All Products</a></li>
+                <li><a href="../Collections.aspx">Collections</a></li>
+                <li><a href="../Contact.aspx">Contact Us</a></li>
+                <li><a href="../Social.aspx">Social</a></li>
+                <li><asp:Button ID="btnLogInLink" runat="server" Text="LogIn" OnClick="btnLogInLink_Click" /></li>
+                <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
+                <li><asp:Button ID="btnSignUpLink" runat="server" Text="SignUp" OnClick="btnSignUpLink_Click" /></li>
+                <li><asp:Label runat="server" ID="lblUsername"></asp:Label></li>
             </ul>
+            
         </nav>
     </header>
     <main>
@@ -35,6 +77,7 @@
     <footer>
         <small>Ashley Redman 2017</small>
     </footer>
+    </form>
     <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

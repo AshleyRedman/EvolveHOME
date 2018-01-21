@@ -1,4 +1,24 @@
 ﻿<%@ Master Language="C#" %>
+<%@ Import Namespace="System" %>
+
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
+
+<script runat="server">
+
+
+    protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("user");
+            Response.Redirect("../Admin.aspx");
+        }
+
+</script>
+
 
 <!DOCTYPE html>
 
@@ -17,7 +37,9 @@
     <script type="text/javascript" src="js/jquery3.2.1.js"></script>
 </head>
 <body>
+    <form runat="server">
     <header>
+        
         <ul>
             <li>
                 <a href="Default.aspx">
@@ -50,11 +72,7 @@
                 </a>
             </li>
             <li>
-                <a href="../Admin.aspx">
-                    <img src="media/ico/control-ico/png/exit.png" alt="Log Out" />
-                    <p>Log Out</p>
-                </a>
-                
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
             </li>
         </ul>
     </header>
@@ -66,6 +84,7 @@
     <footer>
 
     </footer>
+    </form>
     <!-- Script link -->
     <script type="text/javascript" src="js/scripts.js"></script>
     

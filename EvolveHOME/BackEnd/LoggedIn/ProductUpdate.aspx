@@ -16,6 +16,14 @@
 
     }
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] != null)
+            {
+                lblUsername.Text = Session["User"].ToString();
+            }
+    }
+
 
 </script>
 
@@ -23,12 +31,12 @@
     <section class="content-area">
         <section class="page-title">
             <h2>Update a current product</h2>
-            <h4>Logged In:  <span>Admin Name</span></h4>
+            <h4>Logged In As: <span><asp:Label Text="" runat="server" ID="lblUsername" /></span></h4>
         </section>
         <section class="obj-control">
             <aside>
                 <article class="obj-edit">
-                    <form runat="server">
+
                     <h5>Enter the Product ID and select Find Record</h5>
                     <asp:Button runat="server" ID="btnFind" Text="Find Record" OnClick="btnFind_Click" />
                     <table class="product-form" id="edit-form">
@@ -65,7 +73,7 @@
                     </table>
                     <asp:Button runat="server" ID="btnUpdate" Text="Update" onClick="btnUpdate_Click"/>
                     <asp:Label ID="lblUpdate" CssClass="label" runat="server">Message</asp:Label>
-                 </form>
+
                 </article>
             </aside>
             <aside>

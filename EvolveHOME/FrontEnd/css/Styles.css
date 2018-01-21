@@ -26,6 +26,13 @@ header {
     height: 100px;
     color:#2c3e50;
 }
+#lblUsername {
+    color: #2c3e50;
+    font-weight: 400;
+    width: 100px;
+    text-decoration: underline;
+}
+
 nav {
     display: none;
     background-color: #fff;
@@ -55,9 +62,23 @@ nav a {
     color:#000;
     font-weight: bold;
 }
-nav ul:nth-child(6) {
-    display:none;
+
+
+#btnLogInLink, #btnSignUpLink, #btnLogOut {
+    background-color: #2ecc71;
+    color: #000;
+    height: 40px;
+    width: 80px;
+    text-decoration: none;
+    border: none;
+    padding: 10px 10px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin: auto;
+    border-radius: 3px;
+    text-align: center;
 }
+
 
 main {
     min-height: 500px;
@@ -813,16 +834,8 @@ small {
     nav li {
         display: inline-block;
     }
-    nav li:nth-child(6) {
-    background-color:#1abc9c;
-    border-radius:15%;
-    border-bottom: none;
-    margin-left: 10px;
-    }
-    nav li:hover:nth-child(6) {
-        background-color:#2ecc71;
-    }
 
+   
     main {
         margin-top: 70px;
     }
@@ -839,7 +852,7 @@ small {
     nav {
 		float: right;
         display: flex;
-        width: 650px;
+        width: 900px;
         position:static;
         margin-top: 20px;
 	}
