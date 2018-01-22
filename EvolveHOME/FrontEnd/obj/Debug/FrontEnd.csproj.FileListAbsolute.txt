@@ -18,3 +18,5 @@ C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\FrontEnd\
 C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\FrontEnd\obj\Debug\FrontEnd.pdb
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\ClassControlLib.dll
 C:\Users\Ash\Documents\Github\Year-3\IMAT3903 - TeamDevelopment\EvolveHOME\EvolveHOME\FrontEnd\bin\ClassControlLib.pdb
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\FrontEnd\bin\ClassControlLib.dll
+C:\Users\Ashley Redman\Documents\GitHub\IMAT3903\EvolveHOME\EvolveHOME\FrontEnd\bin\ClassControlLib.pdb

@@ -60,11 +60,9 @@
             <ul>
                 <li><a href="AllProducts.aspx">All Products</a></li>
                 <li><a href="Collections.aspx">Collections</a></li>
-                <li><a href="Contact.aspx">Contact Us</a></li>
-                <li><a href="Social.aspx">Social</a></li>
                 <li><asp:Button ID="btnLogInLink" runat="server" Text="LogIn" OnClick="btnLogInLink_Click" /></li>
-                <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
                 <li><asp:Button ID="btnSignUpLink" runat="server" Text="SignUp" OnClick="btnSignUpLink_Click" /></li>
+                <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
                 <li><asp:Label runat="server" ID="lblUsername"></asp:Label></li>
             </ul>
             
@@ -77,6 +75,11 @@
     </asp:ContentPlaceHolder>
     </main>
     <footer>
+            <ul>
+                <li><a href="Contact.aspx">Contact Us</a></li>
+                <li><a href="Social.aspx">Social</a></li>
+            </ul>
+
         <small>Ashley Redman 2017</small>
     </footer>
     </form>

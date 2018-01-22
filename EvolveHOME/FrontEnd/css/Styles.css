@@ -55,7 +55,7 @@ nav li {
 
 }
 nav li:hover {
-    border-bottom: 2px solid #000;
+    color: #fff;
 }
 nav a {
 	text-decoration: none;
@@ -302,21 +302,20 @@ small {
 }
 #AllProducts table td {
     width: 25%;
-    height: 380px;
+    height: 480px;
 }
 #AllProducts table td div {
     width: 100%;
     display:flex;
     flex-direction: column;
     text-align: center;
-    height: 350px;
+    height: 360px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
 #AllProducts table td img {
     width: 250px;
     margin: auto;
-    
 }
 #AllProducts table td button {
     width: 100px;
@@ -329,8 +328,15 @@ small {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Styles for the Product Details Page */
+.LabelTitle {
+}
 
+.PriceLabel {
+    
+}
+
+
+/* Styles for the Product Details Page */
 #ProductPreview {
     height: 600px;
     width: 40%;
@@ -852,10 +858,23 @@ small {
     nav {
 		float: right;
         display: flex;
-        width: 900px;
+        width: 700px;
         position:static;
-        margin-top: 20px;
+        margin-top: 10px;
 	}
+    nav ul {
+        float: right;
+        display: flex;
+        justify-content: space-around;
+    }
+    nav ul li {
+        align-items: center;
+        margin-top: 0px;
+        height: 30px;
+    }
+    nav ul li:nth-child(2) {
+        padding-top: 10px;
+    }
     #menu {
         display: none;
     }
