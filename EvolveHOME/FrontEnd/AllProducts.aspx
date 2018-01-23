@@ -46,6 +46,7 @@
         }
     }
 
+
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
@@ -102,6 +103,11 @@
         </ul>
     </section>
     <section id="AllProducts">
+
+
+        
+
+
         <table>
             <tr>
                 <td>

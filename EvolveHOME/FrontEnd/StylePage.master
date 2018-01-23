@@ -84,5 +84,6 @@
     </footer>
     </form>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/jquery3.2.1.js"></script>
 </body>
 </html>
