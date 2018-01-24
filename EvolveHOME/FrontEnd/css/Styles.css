@@ -63,6 +63,9 @@ nav a {
     font-weight: bold;
 }
 
+span {
+    color: green;
+}
 
 #btnLogInLink, #btnSignUpLink, #btnLogOut {
     background-color: #2ecc71;

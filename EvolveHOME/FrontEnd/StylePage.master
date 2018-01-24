@@ -11,7 +11,7 @@
         else
         {
             // Do whatever you were going to do.
-            lblUsername.Text = "Welcome Back " + Session["User"].ToString();
+            lblUsername.Text = "Your Profile:  " + "<span>" + Session["User"].ToString() + "</span>";
             btnLogInLink.Visible = false;
             btnSignUpLink.Visible = false;
             btnLogOut.Visible = true;
@@ -63,7 +63,7 @@
                 <li><asp:Button ID="btnLogInLink" runat="server" Text="LogIn" OnClick="btnLogInLink_Click" /></li>
                 <li><asp:Button ID="btnSignUpLink" runat="server" Text="SignUp" OnClick="btnSignUpLink_Click" /></li>
                 <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
-                <li><asp:Label runat="server" ID="lblUsername"></asp:Label></li>
+                <li><a href="LoggedIn/CustomerProfile.aspx"><asp:Label runat="server" ID="lblUsername"></asp:Label></a></li>
             </ul>
             
             

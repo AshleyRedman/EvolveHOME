@@ -6,7 +6,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -15,54 +15,55 @@
     }
 
     private void AuthenticateUser(string username, string password)
+    {
+        // ConfigurationManager class is in System.Configuration namespace
+        string CS = ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString;
+        // SqlConnection is in System.Data.SqlClient namespace
+        using (SqlConnection con = new SqlConnection(CS))
         {
-            // ConfigurationManager class is in System.Configuration namespace
-            string CS = ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString;
-            // SqlConnection is in System.Data.SqlClient namespace
-            using (SqlConnection con = new SqlConnection(CS))
+            SqlCommand cmd = new SqlCommand("sproc_tblAccount_AuthenticateUser", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //Formsauthentication is in system.web.security
+            string encryptedpassword = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "SHA1");
+
+            //sqlparameter is in System.Data namespace
+            SqlParameter paramUsername = new SqlParameter("@Username", username);
+            SqlParameter paramPassword = new SqlParameter("@Password", encryptedpassword);
+
+            cmd.Parameters.Add(paramUsername);
+            cmd.Parameters.Add(paramPassword);
+
+            con.Open();
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
             {
-                SqlCommand cmd = new SqlCommand("sproc_tblAccount_AuthenticateUser", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                int retryAttempts = Convert.ToInt32(rdr["RetryAttempts"]);
 
-                //Formsauthentication is in system.web.security
-                string encryptedpassword = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "SHA1");
-
-                //sqlparameter is in System.Data namespace
-                SqlParameter paramUsername = new SqlParameter("@Username", username);
-                SqlParameter paramPassword = new SqlParameter("@Password", encryptedpassword);
-
-                cmd.Parameters.Add(paramUsername);
-                cmd.Parameters.Add(paramPassword);
-
-                con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
+                if (Convert.ToInt32(rdr["UserFound"]) == 0)
                 {
-                    int retryAttempts = Convert.ToInt32(rdr["RetryAttempts"]);
-
-                    if (Convert.ToInt32(rdr["UserFound"]) == 0)
-                    {
-                        lblMessage.Text = "Invalid User Name and/or Password.";
-                    }
-                    else if (Convert.ToBoolean(rdr["AccountLocked"]))
-                    {
-                        lblMessage.Text = "Account locked, please contact administrator";
-                    }
-                    else if (retryAttempts > 0)
-                    {
-                        // allowing user to attempt login 3 times
-                        int attemptsLeft = (3 - retryAttempts);
-                        lblMessage.Text = "Invalid User Name and/or Password. " +
-                            attemptsLeft.ToString() + " attempt(s) left";
-                    }
-                    else if (Convert.ToBoolean(rdr["Authenticated"]))
-                    {
-                        Session["user"] = txtUsername.Text;
-                        FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, chkBoxRememberMe.Checked);
-                    }
+                    lblMessage.Text = "Invalid User Name and/or Password.";
+                }
+                else if (Convert.ToBoolean(rdr["AccountLocked"]))
+                {
+                    lblMessage.Text = "Account locked, please contact administrator";
+                }
+                else if (retryAttempts > 0)
+                {
+                    // allowing user to attempt login 3 times
+                    int attemptsLeft = (3 - retryAttempts);
+                    lblMessage.Text = "Invalid User Name and/or Password. " +
+                        attemptsLeft.ToString() + " attempt(s) left";
+                }
+                else if (Convert.ToBoolean(rdr["Authenticated"]))
+                {
+                    Session["user"] = txtUsername.Text;
+                    Session["password"] = txtPassword.Text;
+                    FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, chkBoxRememberMe.Checked);
                 }
             }
         }
+    }
 
 </script>
 

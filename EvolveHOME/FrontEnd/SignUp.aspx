@@ -42,6 +42,8 @@
                 SqlParameter postcode = new SqlParameter("@PostCode", txtPostcode.Text);
                 SqlParameter country = new SqlParameter("@Country", txtCountry.Text);
 
+                Session["email"] = email;
+
                 cmdAccount.Parameters.Add(username);
                 cmdAccount.Parameters.Add(password);
 
