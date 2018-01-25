@@ -16,6 +16,7 @@
             string Collection = "select Collection from tblHomeProducts where ProductID = 26";
             string Description = "select Description from tblHomeProducts where ProductID = 26";
             string Dimentions = "select Dimentions from tblHomeProducts where ProductID = 26";
+            string Image = "select ImagePath from tblHomeProducts where ProductID = 26";
 
             // use the query with the connection to gain result
             SqlCommand showName = new SqlCommand(Name, con);
@@ -24,6 +25,7 @@
             SqlCommand showCollection = new SqlCommand(Collection, con);
             SqlCommand showDescription = new SqlCommand(Description, con);
             SqlCommand showDimentions = new SqlCommand(Dimentions, con);
+            SqlCommand showImage = new SqlCommand(Image, con);
 
             //open the sql connection
             con.Open();
@@ -34,6 +36,7 @@
             lblCollection.Text = showCollection.ExecuteScalar().ToString();
             lblDescription.Text = showDescription.ExecuteScalar().ToString();
             lblDimentions.Text = showDimentions.ExecuteScalar().ToString();
+            imgImage.ImageUrl = showImage.ExecuteScalar().ToString();
             //close db connection
             con.Close();
             
@@ -63,7 +66,7 @@
     </section>
     <section id="ProductPreview">
         <figure>
-            <img src="../media/img/product/4sofa.jpg" alt="sofa1" />
+            <asp:Image ID="imgImage" runat="server" />
             <figcaption>
 
             </figcaption>

@@ -13,15 +13,6 @@ namespace FrontEnd.LoggedIn {
     public partial class CustomerProfile {
         
         /// <summary>
-        /// lblSessionID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSessionID;
-        
-        /// <summary>
         /// lblAccountID control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace FrontEnd.LoggedIn {
         protected global::System.Web.UI.WebControls.Label lblAccountID;
         
         /// <summary>
+        /// lblCustomerID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerID;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -38,24 +38,6 @@ namespace FrontEnd.LoggedIn {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUsername;
-        
-        /// <summary>
-        /// lblPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
-        
-        /// <summary>
-        /// lblCustoemrID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustoemrID;
         
         /// <summary>
         /// lblFirstName control.
@@ -137,5 +119,14 @@ namespace FrontEnd.LoggedIn {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCountry;
+        
+        /// <summary>
+        /// imgProfileImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgProfileImg;
     }
 }

@@ -65,6 +65,7 @@ nav a {
 
 span {
     color: green;
+    font-weight: 500;
 }
 
 #btnLogInLink, #btnSignUpLink, #btnLogOut {
@@ -823,7 +824,24 @@ small {
 
 
 
+/* Styles for the Customers profile page*/
 
+.ProfileLeft {
+    width: 40%;
+    float: left;
+}
+.ProfileRight {
+    width: 40%;
+    float: right;
+    text-align: center;
+}
+#ProfileData {
+    color: black;
+}
+
+.ProfileImage {
+    width: 200px;
+}
 
 
 
