@@ -31,6 +31,10 @@
         Session.Remove("user");
         Response.Redirect("../Default.aspx");
     }
+    protected void btnCheckout_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Basket.aspx");
+    }
 
 
 
@@ -62,6 +66,7 @@
                 <li><asp:Button ID="btnLogInLink" runat="server" Text="LogIn" OnClick="btnLogInLink_Click" /></li>
                 <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
                 <li><asp:Button ID="btnSignUpLink" runat="server" Text="SignUp" OnClick="btnSignUpLink_Click" /></li>
+                <li><asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click"/></li>
                 <li><a href="CustomerProfile.aspx"><asp:Label runat="server" ID="lblUsername"></asp:Label></a></li>
             </ul>
             

@@ -40,12 +40,12 @@
             SqlCommand showPostCode = new SqlCommand(FindPostCode, con);
             SqlCommand showCountry = new SqlCommand(FindCountry, con);
             SqlCommand showProfileImage = new SqlCommand(FindProfileImage, con);
-            
+
 
             con.Open();
 
             lblAccountID.Text = showAccountID.ExecuteScalar().ToString();
-            lblCustomerID.Text = showCustomerID.ExecuteScalar().ToString();
+            //lblCustomerID.Text = showCustomerID.ExecuteScalar().ToString();
             lblUsername.Text = Username;
             lblFirstName.Text = showFirstName.ExecuteScalar().ToString();
             lblLastName.Text = showLastName.ExecuteScalar().ToString();

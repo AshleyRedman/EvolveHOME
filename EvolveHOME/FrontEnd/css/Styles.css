@@ -63,12 +63,19 @@ nav a {
     font-weight: bold;
 }
 
+.cartImage {
+    width: 10px;
+}
+#imgCart {
+    width: 10px;
+} 
+
 span {
     color: green;
     font-weight: 500;
 }
 
-#btnLogInLink, #btnSignUpLink, #btnLogOut {
+#btnLogInLink, #btnSignUpLink, #btnLogOut, #btnCheckout {
     background-color: #2ecc71;
     color: #000;
     height: 40px;
