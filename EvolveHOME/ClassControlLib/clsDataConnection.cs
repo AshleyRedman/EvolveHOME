@@ -17,7 +17,7 @@ public class clsDataConnection
     SqlConnection connectionToDB = new SqlConnection();
     //data adapter used to transfer data to and from the database
     SqlDataAdapter dataChannel = new SqlDataAdapter();
-    //ado.net class for building the sql commands
+    //ado.net class for building the sql commands    
     SqlCommandBuilder commandBuilder = new SqlCommandBuilder();
     //stores a list of all of the sql parameters
     List<SqlParameter> SQLParams = new List<SqlParameter>();

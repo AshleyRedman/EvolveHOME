@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data;
-using System.Data.SqlClient;
 using ClassControlLib;
 
 namespace ClassControlLib
@@ -27,6 +25,9 @@ namespace ClassControlLib
         private string mDescription;
         //private data member for the product dimentions
         private string mDimentions;
+
+
+
 
         //public Home Product Properties
         public Int32 ProductID { get { return mProductID; } set { mProductID = value; } }
