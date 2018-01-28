@@ -9,7 +9,11 @@
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString);
 
         {
+
+            string Username = Session["user"].ToString();
+            string FindAccountID = "select AccountID from tblAccount where Username='"+ Username + "'";
             //create vars to hold the sql query
+            //string ProductId = "select ProductID from tblHomeProducts where ProductID = 26";
             string Name = "select Name from tblHomeProducts where ProductID = 26";
             string Price = "select Price from tblHomeProducts where ProductID = 26";
             string Type = "select Type from tblHomeProducts where ProductID = 26";
@@ -26,6 +30,7 @@
             SqlCommand showDescription = new SqlCommand(Description, con);
             SqlCommand showDimentions = new SqlCommand(Dimentions, con);
             SqlCommand showImage = new SqlCommand(Image, con);
+            SqlCommand showID = new SqlCommand(FindAccountID, con);
 
             //open the sql connection
             con.Open();
@@ -37,8 +42,10 @@
             lblDescription.Text = showDescription.ExecuteScalar().ToString();
             lblDimentions.Text = showDimentions.ExecuteScalar().ToString();
             imgImage.ImageUrl = showImage.ExecuteScalar().ToString();
+            lblID.Text = showID.ExecuteScalar().ToString();
             //close db connection
             con.Close();
+
             
         }
 
@@ -51,7 +58,41 @@
          * 
          * 
          */
-        Response.Redirect("../LoggedIn/Basket.aspx");
+        if (Session["user"] != null)
+        {
+
+            //string Username = Session["user"].ToString();
+            //string FindAccountID = "select AccountID from tblAccount where Username='"+ Username + "'";
+
+            ClassControlLib.clsHomeUserBasket HomeBasket = new ClassControlLib.clsHomeUserBasket();
+
+            Boolean OK = HomeBasket.ThisHomeItem.Valid(lblName.Text, Convert.ToInt32(lblPrice.Text));
+
+            //Int32 AccountID = Convert.ToInt32(FindAccountID);
+            Int32 AccountID = Convert.ToInt32(lblID.Text);
+            string Name = lblName.Text;
+            Int32 Price = Convert.ToInt32(lblPrice.Text);
+
+            if (OK == true)
+            {
+                HomeBasket.ThisHomeItem.AccountID = AccountID;
+                HomeBasket.ThisHomeItem.Name = Name;
+                HomeBasket.ThisHomeItem.Price = Price;
+                HomeBasket.Add();
+                lblmessage.Text = "Item added to basket";
+                Response.Redirect("~/LoggedIn/Basket.aspx");
+            }
+            else
+            {
+                lblmessage.Text = "Item cannot be added right now, please contact an admin";
+            }
+
+        }
+        else
+        {
+            Response.Redirect("~/Login.aspx");
+        }
+
     }
 
 
@@ -60,7 +101,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-
+    <asp:Label runat="server" ID="lblID"></asp:Label>
     <section>
         <h2><asp:Label Text="Product Namer here" runat="server" ID="lblName" /></h2>
     </section>
@@ -100,6 +141,7 @@
         <div class="ProductPurchase">
             <h4>Price: <asp:Label Text="price here" runat="server" ID="lblPrice" /></h4>
             <asp:Button Text="Add To Basket" runat="server" ID="btnAddToBasket" OnClick="btnAddToBasket_Click" class="Buttons" />
+            <asp:Label runat="server" ID="lblmessage"></asp:Label>
         </div>
     </aside>
     <section class="SimilarProducts">
