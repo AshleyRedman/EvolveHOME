@@ -136,7 +136,9 @@ section {
 }
 
 
-
+.add-to-cart {
+    color: white;
+}
 
 footer {
 	
@@ -151,11 +153,7 @@ footer {
     transform: translate(-50%);
 }
 small {
-    display: flex;
-    justify-content: center;
-    align-items:flex-end;
-    height: 100%;
-    font-size:large;
+
 }
 
 .ViewButton {
@@ -444,39 +442,42 @@ small {
 
 /* Syles for the basket page */
 
-#BasketDisplay {
-    height: 650px;
-}
-#BasketDisplay table {
-    display: flex;
-    justify-content: space-around;
-    height: 500px;
-    border: none;
-    border-collapse: collapse;
-    border-bottom: 3px solid #dedede;
-}
-
-#BasketDisplay table th {
-    height: 50px;
-    width: 300px;
-    border-bottom: 1px solid #dedede;
-}
-#BasketDisplay table tr {
-
+.cart-display {
 
 }
-#BasketDisplay table td {
-    width: 300px;
-    height: 100px;
-    border-bottom: 1px solid #dedede;
+
+.cart-display table {
+    
+}
+
+#cart-title {
+    width: 100%;
     text-align: center;
+    padding: 0;
+    border-bottom: 1px solid #2c3e50;
+    font-weight: bold;
+    
 }
-#BasketDisplay img {
-    width: 50px;
+
+#cart-title td {
+    width: 20%;
+    border: 1px solid blue;
+    border: none;
 }
-#BasketDisplay h4 {
-    display: inline-block;
+
+#show-cart {
+    width: 100%;
+    text-align: center;
+    padding: 0;
 }
+    #show-cart td {
+        width: 20%;
+        border: 1px solid blue;
+        border: none;
+        height: 50px;
+        border-bottom: 1px solid #2c3e50;
+    }
+
 .ContinueButton div {
     width: 200px;
     height: 50px;
@@ -778,7 +779,7 @@ small {
     font-size: 0.7em;
     display: inline-block;
 }
-#access-area input[type=text], input[type=email], input[type=password], select, button {
+#access-area input[type=text], input[type=email], input[type=password], select {
     border-radius: 5px;
     padding: 0;
     border: 1px solid #dedede;

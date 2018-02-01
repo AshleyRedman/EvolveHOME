@@ -53,6 +53,8 @@
     <link href="css/styles.css" rel="stylesheet" />
     <!--Favicon Link Link -->
     <link rel="shortcut icon" href="media/img/favicon.ico" />
+
+    
 </head>
 <body>
     <form runat="server">
@@ -77,18 +79,16 @@
     <main>
     <asp:ContentPlaceHolder id="head" runat="server">
 
+    
     </asp:ContentPlaceHolder>
     </main>
     <footer>
-            <ul>
-                <li><a href="Contact.aspx">Contact Us</a></li>
-                <li><a href="Social.aspx">Social</a></li>
-            </ul>
-
-        <small>Ashley Redman 2017</small>
+    <a href="Contact.aspx">Contact Us</a>
+    <a href="Social.aspx">Social</a>
+    <a href="StoreLocation.aspx">Store Locator</a>
+    <small>Ashley Redman 2017</small>
     </footer>
     </form>
-    <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/jquery3.2.1.js"></script>
+
 </body>
 </html>

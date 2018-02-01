@@ -68,6 +68,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="js\jquery3.2.1.js" />
+    <Content Include="js\maps.js" />
+    <Content Include="js\shoppingCart.js" />
     <Content Include="LoggedIn\CustomerProfile.aspx" />
     <Content Include="LoggedIn\LoggedIm.Master" />
     <None Include="packages.config" />
@@ -75,6 +77,7 @@
     <Content Include="Products\BiggerSofa.aspx" />
     <Content Include="Products\BiggestSofa.aspx" />
     <Content Include="Products\GreyLegSupport.aspx" />
+    <Content Include="StoreLocation.aspx" />
     <Content Include="StylePage.master" />
     <Content Include="Products\ProductDetail.Master" />
     <None Include="Web.Debug.config">
@@ -153,6 +156,13 @@
       <DependentUpon>ProductDetail.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreLocation.aspx.cs">
+      <DependentUpon>StoreLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreLocation.aspx.designer.cs">
+      <DependentUpon>StoreLocation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StylePage.master.cs">
       <DependentUpon>StylePage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
