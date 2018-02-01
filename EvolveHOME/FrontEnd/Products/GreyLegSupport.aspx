@@ -103,7 +103,7 @@
             <h4>Price: <asp:Label Text="price here" runat="server" ID="lblPrice" /></h4>
             
             <div class=".Button"><a class="add-to-cart" href="#" data-name="Leg Stool" data-price="60">Add To Basket</a></div>
-            <p id="lblMessage"></p>
+
             <script src="../js/shoppingCart.js"></script>
             <script>
                 $(".add-to-cart").click(function (event) {

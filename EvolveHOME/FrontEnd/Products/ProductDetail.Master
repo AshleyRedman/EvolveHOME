@@ -79,9 +79,9 @@
     </asp:ContentPlaceHolder>
     </main>
     <footer>
-    <a href="Contact.aspx">Contact Us</a>
-    <a href="Social.aspx">Social</a>
-    <a href="StoreLocation.aspx">Store Locator</a>
+    <a href="../Contact.aspx">Contact Us</a>
+    <a href="../Social.aspx">Social</a>
+    <a href="../StoreLocation.aspx">Store Locator</a>
     <small>Ashley Redman 2017</small>
     </footer>
     </form>
