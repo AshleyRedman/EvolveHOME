@@ -88,7 +88,7 @@ namespace ClassControlLib
             return OK;
         }
 
-        public bool Find(Int32 productID)
+        public bool Find(Int32 ProductID)
         {
             
             clsDataConnection DB = new clsDataConnection();

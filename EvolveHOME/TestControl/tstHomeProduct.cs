@@ -124,7 +124,7 @@ namespace TestControl
 
             Boolean Found = false;
 
-            Int32 ProductID = 1;
+            Int32 ProductID = 26;
 
             Found = AHomeProduct.Find(ProductID);
 
