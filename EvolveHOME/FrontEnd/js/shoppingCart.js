@@ -1,6 +1,7 @@
 ﻿// ***************************************************
 // Shopping Cart functions
 
+
 var shoppingCart = (function () {
     // Private methods and properties
     var cart = [];
@@ -23,6 +24,13 @@ var shoppingCart = (function () {
     }
 
     loadCart();
+
+
+    // To save the cart to the order table referenced with a customer and order ID
+    function saveCartToDB() {
+        var cartString = setItem("shoppingCart", JSON.stringify(cart));
+        
+    }
 
 
 

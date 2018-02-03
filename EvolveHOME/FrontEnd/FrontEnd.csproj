@@ -91,7 +91,6 @@
     <Content Include="AllProducts.aspx" />
     <Content Include="LoggedIn\Basket.aspx" />
     <Content Include="LoggedIn\Checkout.aspx" />
-    <Content Include="LoggedIn\ChooseDelivery.aspx" />
     <Content Include="Collections.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\Styles.css" />

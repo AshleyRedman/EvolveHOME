@@ -7,8 +7,14 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["user"] != null)
+        {
 
-
+        }
+        else
+        {
+            Response.Redirect("~/Login.aspx");
+        }
 
     }
 
@@ -29,9 +35,9 @@
              <tr>
                 <td>Product</td>
                 <td>Quantity</td>
-                <td>Add 1</td>
-                <td>Remove 1</td>
-                <td>remove Alll</td>
+                <td>+1</td>
+                <td>-1</td>
+                <td>Remove Product</td>
              </tr>
             </table>
             <br />
@@ -45,6 +51,8 @@
             <div>You have <span id="count-cart">X</span> items in your cart</div>
             <br />
             <div>Total Cart:£<span id="total-cart"></span></div>
+            <br />
+            <div class=".Button"><a href="Checkout.aspx">Continue to Delivery Options.</a></div>
         </div>
         
 

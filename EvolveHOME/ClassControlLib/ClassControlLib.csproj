@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
-    <Compile Include="clsHomeBasketItem.cs" />
+    <Compile Include="clsHomeOrder.cs" />
+    <Compile Include="clsHomeOrderCollection.cs" />
     <Compile Include="clsHomeProduct.cs" />
     <Compile Include="clsHomeProductCollection.cs" />
-    <Compile Include="clsHomeUserBasket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

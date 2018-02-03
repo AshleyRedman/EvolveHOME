@@ -139,11 +139,11 @@ namespace TestControl
             Boolean Found = false;
             //bool to store the result if data is ok
             Boolean OK = true;
-            Int32 ProductID = 1;
+            Int32 ProductID = 22;
             //invoke the methid
             Found = AHomeProduct.Find(ProductID);
             //check the ID 
-            if (AHomeProduct.ProductID != 1)
+            if (AHomeProduct.ProductID != 22)
             {
                 OK = false;
             }
@@ -202,9 +202,9 @@ namespace TestControl
             clsHomeProduct AHomeProduct = new clsHomeProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductID = 1;
+            Int32 ProductID = 22;
             Found = AHomeProduct.Find(ProductID);
-            if (AHomeProduct.Collection != "Collection")
+            if (AHomeProduct.Collection != "Living Space")
             {
                 OK = false;
             }
@@ -217,9 +217,9 @@ namespace TestControl
             clsHomeProduct AHomeProduct = new clsHomeProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductID = 1;
+            Int32 ProductID = 22;
             Found = AHomeProduct.Find(ProductID);
-            if (AHomeProduct.Description != "Description")
+            if (AHomeProduct.Description != "A larger version of our famous modern grey sofa")
             {
                 OK = false;
             }
@@ -234,7 +234,7 @@ namespace TestControl
             Boolean OK = true;
             Int32 ProductID = 1;
             Found = AHomeProduct.Find(ProductID);
-            if (AHomeProduct.Dimentions != "31,31,31")
+            if (AHomeProduct.Dimentions != "600,50,50")
             {
                 OK = false;
             }
