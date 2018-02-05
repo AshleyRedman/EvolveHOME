@@ -9,7 +9,7 @@
     {
         if (Session["user"] != null)
         {
-            lblHidden.Visible = false;
+            //lblHidden.Visible = true;
         }
         else
         {
@@ -27,21 +27,20 @@
         string Status = "Awaiting Delivery";
         Boolean OK = HomeOrder.ThisOrder.Valid(calDeliveryDate.SelectedDate.ToString(), Status, txtCardNumber.Text, txtExpDate.Text, txtCVC.Text);
         //create int to store the account id
-        string User = Username;
         // create a DateTime to store selected date time
         DateTime DeliveryDate = calDeliveryDate.SelectedDate;
 
-        
         string CardNumber = txtCardNumber.Text;
         string ExpireDate = txtExpDate.Text;
         string CVC = txtCVC.Text;
-        string Cart = lblHidden.Text;
+        // set json string to value
+        string Cart = txtaspCart.ToString();
 
         if (OK == true)
         {
-            HomeOrder.ThisOrder.Username = User;
+            HomeOrder.ThisOrder.Username = Username;
             HomeOrder.ThisOrder.DeliveryDate = DeliveryDate;
-            HomeOrder.ThisOrder.Cart = lblHidden.Text;
+            HomeOrder.ThisOrder.Cart = Cart;
             HomeOrder.ThisOrder.Status = Status;
             HomeOrder.ThisOrder.CardNumber = CardNumber;
             HomeOrder.ThisOrder.ExpireDate = ExpireDate;
@@ -63,14 +62,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    
-    <asp:Label ID="lblHidden" runat="server"></asp:Label>
-    <script>
-        var cart = document.getElementByIdlblHidden);
-        hidden.value = JSON.parse(localStorage.getItem("shoppingCart"));
-   
-    </script>
 
+        <p id="pcart">No Cart Items</p>
+        <asp:TextBox runat="server" ID="txtaspCart"></asp:TextBox>
+
+    <script>
+
+        document.getElementById('<%= txtaspCart.ClientID %>').innerHTML = JSON.stringify(localStorage.getItem("shoppingCart"));
+
+
+       // document.getElementById("pcart").innerHTML = JSON.stringify(localStorage.getItem("shoppingCart"));
+        
+        //lblHidden.Text = "My cart test";
+        //hidden.value = JSON.parse(localStorage.getItem("shoppingCart"));
+        //var cart = document.getElementById(lblHidden);
+        //document.getElementById(lblHidden).value = new string(JSON.parse(localStorage.getItem("shoppingCart")));
+        //lblHidden.Text = document.getElementById(lblHidden);
+        //document.getElementById(iCart).value = "My test cart";
+    </script>
     <section id="CheckoutPage">
         <section id="delivery-review">
             <aside>
