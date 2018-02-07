@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="Your Profile" Language="C#" MasterPageFile="~/LoggedIn/LoggedIm.Master" AutoEventWireup="true" CodeBehind="CustomerProfile.aspx.cs" Inherits="FrontEnd.LoggedIn.CustomerProfile" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Net" %>
+
 
 <script runat="server">
 
@@ -59,6 +63,8 @@
         // if it is there display based on username match
         // if not, visable addition textboxes
     }
+
+
 
 
 </script>

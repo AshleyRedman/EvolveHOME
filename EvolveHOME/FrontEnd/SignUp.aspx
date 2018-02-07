@@ -6,6 +6,9 @@
 <%@ Import Namespace="System.Web.UI.WebControls" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
 
 <script runat="server">
 
@@ -56,13 +59,31 @@
 
                 con.Open();
                 int ReturnCode = (int)cmdAccount.ExecuteScalar();
-                //int ReturnCodeCustomer = (int)cmdCustomer.ExecuteScalar();
+
                 if (ReturnCode == -1)
                 {
                     lblMessage.Text = "User Name already in use, please choose another user name";
                 }
                 else
                 {
+                    SmtpClient smtpClient = new SmtpClient();
+
+                    smtpClient.Port = 587;
+                    smtpClient.EnableSsl = true;
+                    smtpClient.Credentials = new NetworkCredential("evolvesystmsltd@gmail.com", "ComputingBSC123");
+                    smtpClient.Host = "smtp.gmail.com";
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    MailMessage mail = new MailMessage();
+
+                    //Setting From , To and CC
+                    mail.From = new MailAddress("evolvesystemsltd@gmail.com");
+                    mail.To.Add(new MailAddress(txtEmail.Text));
+                    mail.CC.Add(new MailAddress("evolvesystemsltd@gmail.com"));
+                    mail.Subject = "Welcome to Evolve Home!";
+                    mail.Body = "Welcome, your Username is " + txtUserName.Text;
+
+                    smtpClient.Send(mail);
+
                     Response.Redirect("~/Login.aspx");
                 }
             }
