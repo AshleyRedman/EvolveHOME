@@ -22,11 +22,9 @@
 
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmdAccount = new SqlCommand("sproc_tblAccount_RegisterUser", con);
-                SqlCommand cmdCustomer = new SqlCommand("sproc_tblCustomer_Insert", con);
+                SqlCommand cmdAccount = new SqlCommand("sproc_tblAccount_RegisterUserHome", con);
 
                 cmdAccount.CommandType = CommandType.StoredProcedure;
-                cmdCustomer.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter username = new SqlParameter("@Username", txtUserName.Text);
                 string encryptedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
@@ -42,20 +40,19 @@
                 SqlParameter postcode = new SqlParameter("@PostCode", txtPostcode.Text);
                 SqlParameter country = new SqlParameter("@Country", txtCountry.Text);
 
-                Session["email"] = email;
 
                 cmdAccount.Parameters.Add(username);
                 cmdAccount.Parameters.Add(password);
+                cmdAccount.Parameters.Add(firstname);
+                cmdAccount.Parameters.Add(lastname);
+                cmdAccount.Parameters.Add(email);
+                cmdAccount.Parameters.Add(address1);
+                cmdAccount.Parameters.Add(address2);
+                cmdAccount.Parameters.Add(city);
+                cmdAccount.Parameters.Add(region);
+                cmdAccount.Parameters.Add(postcode);
+                cmdAccount.Parameters.Add(country);
 
-                cmdCustomer.Parameters.Add(firstname);
-                cmdCustomer.Parameters.Add(lastname);
-                cmdCustomer.Parameters.Add(email);
-                cmdCustomer.Parameters.Add(address1);
-                cmdCustomer.Parameters.Add(address2);
-                cmdCustomer.Parameters.Add(city);
-                cmdCustomer.Parameters.Add(region);
-                cmdCustomer.Parameters.Add(postcode);
-                cmdCustomer.Parameters.Add(country);
 
                 con.Open();
                 int ReturnCode = (int)cmdAccount.ExecuteScalar();

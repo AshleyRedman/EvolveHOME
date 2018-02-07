@@ -47,7 +47,8 @@
             HomeOrder.ThisOrder.CVC = CVC;
 
             HomeOrder.Add();
-            lblError.Text = "Successfully ordered";
+            Response.Redirect("OrderConfirmation.aspx");
+            //lblError.Text = "Successfully ordered";
             //Response.Redirect("OrderSummary.aspx");
         }
         else
