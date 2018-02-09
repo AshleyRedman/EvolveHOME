@@ -17,6 +17,7 @@
             //create var to find the users ID
             string FindAccountID = "select AccountID from tblAccount where Username='"+ Username + "'";
 
+            // Find users information based on their customer records
             string firstname = "select FirstName from tblCustomer where Username ='"+ Username + "'";
             string lastname = "select LastName from tblCustomer where Username ='"+ Username + "'";
             string email = "select Email from tblCustomer where Username ='"+ Username + "'";
@@ -27,6 +28,11 @@
             string postcode = "select PostCode from tblCustomer where Username ='"+ Username + "'";
             string country = "select Country from tblCustomer where Username ='"+ Username + "'";
             string profileimg = "select ProfileImagePath from tblCustomer where Username ='"+ Username + "'";
+
+            //find all customers orders
+            string OrdersID = "select OrderID from tblHomeOrders where Username='" + Username + "'";
+            string OrdersDate = "select DeliveryDate from tblHomeOrders where Username='" + Username + "'";
+            string OrdersCart = "select Cart from tblHomeOrders where Username ='" + Username + "'";
 
             // set the query against the db connection
             SqlCommand showAccountID = new SqlCommand(FindAccountID, con);
@@ -40,6 +46,11 @@
             SqlCommand showPostCode = new SqlCommand(postcode, con);
             SqlCommand showCountry = new SqlCommand(country, con);
             SqlCommand showImage = new SqlCommand(profileimg, con);
+
+            SqlCommand showOrdersID = new SqlCommand(OrdersID, con);
+            SqlCommand showOrdersDate = new SqlCommand(OrdersDate, con);
+            SqlCommand showOrdersCart = new SqlCommand(OrdersCart, con);
+
             // open db connection
             con.Open();
             //set lables to the results of the query
@@ -55,6 +66,10 @@
             lblPostCode.Text = showPostCode.ExecuteScalar().ToString();
             lblCountry.Text = showCountry.ExecuteScalar().ToString();
             imgProfileImage.ImageUrl = showImage.ExecuteScalar().ToString();
+
+            lblOrdersID.Text = showOrdersID.ExecuteScalar().ToString();
+            lblOrdersDate.Text = showOrdersDate.ExecuteScalar().ToString();
+            lblOrdersCart.Text = showOrdersCart.ExecuteScalar().ToString();
             //close db connection
             con.Close();
         }
@@ -118,9 +133,26 @@
         </article>
             
         <article class="ProfileRight">
-            <asp:Image ID="imgProfileImage" runat="server" />
+            <asp:Image ID="imgProfileImage" runat="server" CssClass="ProfileImage" />
+            <div class="OrderHistory">
+                <table>
+                <caption>Your Latest Order</caption>
+                <tbody>
+                    <tr>
+                        <td>Order ID</td>
+                        <td><asp:Label runat="server" ID="lblOrdersID"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>Order Date</td>
+                        <td><asp:Label runat="server" ID="lblOrdersDate"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>Cart</td>
+                        <td><asp:Label runat="server" ID="lblOrdersCart"></asp:Label></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
         </article>
     </section>
-
-
 </asp:Content>
