@@ -119,11 +119,11 @@ main {
     margin-top: 50px;
 
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    /*flex-flow: row wrap;*/
+    justify-content: space-between;
 }
 .quickview-area article {
-    width: 45%;
+    width: 49%;
     height: 700px;
 }
 .quickview-area article h4 {
@@ -142,15 +142,41 @@ main {
     overflow:auto;
 }
 .quickview-area article table th {
-    height: 30px;
     font-size: medium;
 }
 .quickview-area article table td {
-    width: 300px;
     text-align: center;
 
     color: #fff;
-    height: 50px;
+
+}
+
+#today-pick {
+    border: 1px solid red;
+    
+}
+#today-pick table {
+    width: 100%;
+    border: 1px solid black;
+    display: block;
+}
+#today-pick table td {
+    border: 1px solid green;
+    width: 100%;
+}
+
+#tomorrow-pick {
+    display: block;
+}
+
+#tomorrow-pick table {
+    border: 1px solid red;
+    display: block;
+}
+#tomorrow-pick table td {
+    border: 1px solid green;
+    
+    
 }
 
 

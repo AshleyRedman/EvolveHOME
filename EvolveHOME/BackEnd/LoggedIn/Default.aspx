@@ -11,10 +11,31 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString);
+
         if (Session["user"] != null)
-            {
-                lblUsername.Text = Session["User"].ToString();
-            }
+        {
+            lblUsername.Text = Session["User"].ToString();
+
+            //
+            string tOrderID = "select OrderID from tblHomeOrders where CONVERT(date, DeliveryDate) = CONVERT(date,GETDATE())";
+            string tOrderCustomer = "select Username from tblHomeOrders where CONVERT(date, Deliverydate) = CONVERT(DATE,GETDATE())";
+
+
+            SqlCommand showtOrders = new SqlCommand(tOrderID, con);
+            SqlCommand showtOrderCustomer = new SqlCommand(tOrderCustomer, con);
+
+            con.Open();
+            lblOrderID.Text = showtOrders.ExecuteScalar().ToString();
+            lbltOrderCustomer.Text = showtOrderCustomer.ExecuteScalar().ToString();
+        }
+        else
+        {
+            Response.Redirect("../Admin.aspx");
+        }
+
+
+
     }
 
 
@@ -31,131 +52,61 @@
         </section>
         <section class="quickview-area">
             <article id="today-pick">
-                <h4>Todays Picks</h4>
+
                 <table>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Order Date</th>
-                        <th>Delivery Date</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>53</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>54</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>55</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>56</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>57</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>58</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>58</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>58</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>58</td>
-                        <td>Admin Smith</td>
-                        <td>19/12/2017</td>
-                        <td>25/12/2017</td>
-                        <td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>
-                    </tr>
+                    <caption>Todays Pick</caption>
+                    <thead>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OrderID</td>
+                            <td><asp:label runat="server" ID="lblOrderID"></asp:label></td>
+                            <td><asp:Label runat="server" ID="lbltOrderCustomer"></asp:Label></td>
+                        </tr>
+                    </tbody>
                 </table>
+
+
             </article>
             <article id="tomorrow-pick">
-                <h4>Tomorrows Picks</h4>
+                
                 <table>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Order Date</th>
-                        <th>Delivery Date</th>
-                    </tr>
-                    <tr>
-                        <td>98</td>
-                        <td>John Smith</td>
-                        <td>18/12/2017</td>
-                        <td>26/12/2017</td>
-                    </tr>
-                    <tr>
-                        <td>98</td>
-                        <td>John Smith</td>
-                        <td>18/12/2017</td>
-                        <td>26/12/2017</td>
-                    </tr>
-                    <tr>
-                        <td>98</td>
-                        <td>John Smith</td>
-                        <td>18/12/2017</td>
-                        <td>26/12/2017</td>
-                    </tr>
-                    <tr>
-                        <td>98</td>
-                        <td>John Smith</td>
-                        <td>18/12/2017</td>
-                        <td>26/12/2017</td>
-                    </tr>
+                    <caption>All Orders</caption>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Cart</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            ClassControlLib.clsHomeOrderCollection HomeOrderList = new ClassControlLib.clsHomeOrderCollection();
+
+                            Int32 Index = 0;
+                            Int32 RecordCount = HomeOrderList.Count;
+                            DateTime thisDay = DateTime.Today;
+                            while (Index < RecordCount)
+                            {
+                                %>
+                                <tr>
+                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].OrderID); %> </td>
+                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Username); %> </td>
+                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].DeliveryDate); %> </td>
+                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Cart); %> </td>
+                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Status); %> </td>
+
+                                </tr>
+                                <%
+                                  Index++;
+                            }
+
+                            %>
+                    </tbody>
+
                 </table>
             </article>
         </section>
