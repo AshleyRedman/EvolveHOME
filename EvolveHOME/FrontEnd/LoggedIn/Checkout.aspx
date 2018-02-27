@@ -34,7 +34,9 @@
         string ExpireDate = txtExpDate.Text;
         string CVC = txtCVC.Text;
         // set json string to value
-        string Cart = txtaspCart.ToString();
+        string Cart = hiddenCart.Value;
+
+
 
         if (OK == true)
         {
@@ -63,24 +65,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+     <!-- Create a hidden field element - once the page loads, this will hold the local storage cart with JSON data -->
+     <asp:HiddenField runat="server" ID="hiddenCart" />
 
-        <p id="pcart">No Cart Items</p>
-        <asp:TextBox runat="server" ID="txtaspCart"></asp:TextBox>
-
+    <!-- JS Script  -->
     <script>
+        // Window load function allows the Local Storage of JSON to be set the value of the hidden asp field
+        window.onload = load();
+        function load() {
 
-        document.getElementById('<%= txtaspCart.ClientID %>').innerHTML = JSON.stringify(localStorage.getItem("shoppingCart"));
-
-
-       // document.getElementById("pcart").innerHTML = JSON.stringify(localStorage.getItem("shoppingCart"));
-        
-        //lblHidden.Text = "My cart test";
-        //hidden.value = JSON.parse(localStorage.getItem("shoppingCart"));
-        //var cart = document.getElementById(lblHidden);
-        //document.getElementById(lblHidden).value = new string(JSON.parse(localStorage.getItem("shoppingCart")));
-        //lblHidden.Text = document.getElementById(lblHidden);
-        //document.getElementById(iCart).value = "My test cart";
+            document.getElementById('<%= hiddenCart.ClientID %>').value = JSON.stringify(localStorage.getItem("shoppingCart"));
+        }
     </script>
+
     <section id="CheckoutPage">
         <section id="delivery-review">
             <aside>

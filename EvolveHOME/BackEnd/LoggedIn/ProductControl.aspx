@@ -38,13 +38,13 @@
             <aside>
                 <ul id="CRUDcontrol">
                     <li>
-                        <asp:Button Text="Add Products" runat="server" ID="btnAddLink" />
+                        <asp:Button Text="Add Products" runat="server" ID="btnAddLink" OnClick="btnAddLink_Click" />
                     </li>
                     <li>
-                        <asp:Button Text="Update Products" runat="server" ID="btnUpdateLink" />
+                        <asp:Button Text="Update Products" runat="server" ID="btnUpdateLink" OnClick="btnUpdateLink_Click" />
                     </li>
                     <li>
-                        <asp:Button Text="Delete Product" runat="server" ID="btnDeleteLink" />
+                        <asp:Button Text="Delete Product" runat="server" ID="btnDeleteLink" OnClick="btnUpdateLink_Click" />
                     </li>
                 </ul>
                   
@@ -94,4 +94,5 @@
             </aside>
         </section>
     </section>
+    <script type="text/javascript" src="js/scripts.js"></script>
 </asp:Content>

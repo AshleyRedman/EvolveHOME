@@ -41,10 +41,6 @@
         }
     }
 
-    protected void btnUpdate_Click(object sender, EventArgs e)
-    {
-
-    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -58,6 +54,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <section class="content-area">
         <section class="page-title">
             <h2>Add a new product</h2>
@@ -168,4 +165,5 @@
             </aside>
             </section>
         </section>
+        <script type="text/javascript" src="../js/scripts.js"></script>
 </asp:Content>

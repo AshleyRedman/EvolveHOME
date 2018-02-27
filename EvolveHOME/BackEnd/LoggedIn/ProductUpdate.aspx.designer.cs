@@ -58,22 +58,22 @@ namespace BackEnd.LoggedIn {
         protected global::System.Web.UI.WebControls.TextBox txtUpdatePrice;
         
         /// <summary>
-        /// txtUpdateType control.
+        /// ddlUpdateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateType;
         
         /// <summary>
-        /// txtUpdateCollection control.
+        /// ddlUpdateCollection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdateCollection;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateCollection;
         
         /// <summary>
         /// txtUpdateDescription control.
@@ -103,12 +103,12 @@ namespace BackEnd.LoggedIn {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
-        /// lblUpdate control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUpdate;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

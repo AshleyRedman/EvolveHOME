@@ -67,9 +67,9 @@
             lblCountry.Text = showCountry.ExecuteScalar().ToString();
             imgProfileImage.ImageUrl = showImage.ExecuteScalar().ToString();
 
-            lblOrdersID.Text = showOrdersID.ExecuteScalar().ToString();
-            lblOrdersDate.Text = showOrdersDate.ExecuteScalar().ToString();
-            lblOrdersCart.Text = showOrdersCart.ExecuteScalar().ToString();
+            //lblOrdersID.Text = showOrdersID.ExecuteScalar().ToString();
+            //lblOrdersDate.Text = showOrdersDate.ExecuteScalar().ToString();
+            //lblOrdersCart.Text = showOrdersCart.ExecuteScalar().ToString();
             //close db connection
             con.Close();
         }

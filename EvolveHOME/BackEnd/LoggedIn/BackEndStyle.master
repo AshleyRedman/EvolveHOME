@@ -34,7 +34,7 @@
     <!--Favicon Link Link -->
     <link rel="shortcut icon" href="../favicon.ico" />
     <!-- Add jQuery 3.2.1 -->
-    <script type="text/javascript" src="js/jquery3.2.1.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -86,7 +86,7 @@
     </footer>
     </form>
     <!-- Script link -->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    
     
 </body>
 </html>

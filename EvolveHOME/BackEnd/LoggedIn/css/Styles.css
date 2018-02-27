@@ -123,62 +123,30 @@ main {
     justify-content: space-between;
 }
 .quickview-area article {
-    width: 49%;
+    width: 100%;
     height: 700px;
 }
-.quickview-area article h4 {
-    line-height: 4em;
-    text-align: center;
-    font-weight:100;
-}
-.quickview-area article table {
-    width: 90%;
-    height: 700px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-    border-collapse: collapse;
-    overflow:auto;
-}
-.quickview-area article table th {
-    font-size: medium;
-}
-.quickview-area article table td {
-    text-align: center;
 
-    color: #fff;
-
-}
 
 #today-pick {
-    border: 1px solid red;
-    
-}
-#today-pick table {
     width: 100%;
-    border: 1px solid black;
-    display: block;
-}
-#today-pick table td {
-    border: 1px solid green;
-    width: 100%;
+   
 }
 
-#tomorrow-pick {
-    display: block;
+.picks {
+    display: flex;
+    justify-content:center;
+    height: 400px;
+}
+.Today-Date {
+    width: 100px;
+    height: 100px;
 }
 
-#tomorrow-pick table {
-    border: 1px solid red;
-    display: block;
+.BoundField {
+    height: 100px;
+    text-align: center;
 }
-#tomorrow-pick table td {
-    border: 1px solid green;
-    
-    
-}
-
 
 
 /* global styles for object control */

@@ -17,17 +17,13 @@
         {
             lblUsername.Text = Session["User"].ToString();
 
-            //
-            string tOrderID = "select OrderID from tblHomeOrders where CONVERT(date, DeliveryDate) = CONVERT(date,GETDATE())";
-            string tOrderCustomer = "select Username from tblHomeOrders where CONVERT(date, Deliverydate) = CONVERT(DATE,GETDATE())";
-
-
-            SqlCommand showtOrders = new SqlCommand(tOrderID, con);
-            SqlCommand showtOrderCustomer = new SqlCommand(tOrderCustomer, con);
-
             con.Open();
-            lblOrderID.Text = showtOrders.ExecuteScalar().ToString();
-            lbltOrderCustomer.Text = showtOrderCustomer.ExecuteScalar().ToString();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("select OrderID, Username, Deliverydate, Cart, Status from tblHomeOrders where CAST(DeliveryDate AS DATE) = CAST(GETDATE() AS DATE) AND Status LIKE '%Awaiting Delivery%'", con);
+            DataTable dtbl = new DataTable();
+            sqlDa.Fill(dtbl);
+            gvOrders.DataSource = dtbl;
+            gvOrders.DataBind();
+
         }
         else
         {
@@ -39,6 +35,11 @@
     }
 
 
+    protected void ckCompleted_CheckedChanged(object sender, EventArgs e)
+    {
+
+
+    }
 </script>
 
 
@@ -53,61 +54,22 @@
         <section class="quickview-area">
             <article id="today-pick">
 
-                <table>
-                    <caption>Todays Pick</caption>
-                    <thead>
+                <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="false" CssClass="picks">
+                    <Columns>
+                        <asp:BoundField DataField="OrderID" HeaderText ="Order ID" ItemStyle-CssClass="BoundField" />
+                        <asp:BoundField DataField="Username" HeaderText ="User Name" ItemStyle-CssClass="BoundField" />
+                        <asp:BoundField DataField="Deliverydate" HeaderText ="Delivery Date" ItemStyle-CssClass="BoundField" />
+                        <asp:BoundField DataField="Cart" HeaderText ="Cart" ItemStyle-CssClass="BoundField" />
+                        <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-CssClass="BoundField" />
+                        <asp:TemplateField HeaderText="Completed?" ItemStyle-CssClass="BoundField">
+                            <ItemTemplate>
+                                <asp:CheckBox runat="server" ID="ckCompleted" OnCheckedChanged="ckCompleted_CheckedChanged" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
 
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>OrderID</td>
-                            <td><asp:label runat="server" ID="lblOrderID"></asp:label></td>
-                            <td><asp:Label runat="server" ID="lbltOrderCustomer"></asp:Label></td>
-                        </tr>
-                    </tbody>
-                </table>
 
-
-            </article>
-            <article id="tomorrow-pick">
-                
-                <table>
-                    <caption>All Orders</caption>
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Cart</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            ClassControlLib.clsHomeOrderCollection HomeOrderList = new ClassControlLib.clsHomeOrderCollection();
-
-                            Int32 Index = 0;
-                            Int32 RecordCount = HomeOrderList.Count;
-                            DateTime thisDay = DateTime.Today;
-                            while (Index < RecordCount)
-                            {
-                                %>
-                                <tr>
-                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].OrderID); %> </td>
-                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Username); %> </td>
-                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].DeliveryDate); %> </td>
-                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Cart); %> </td>
-                                    <td> <%Response.Write(HomeOrderList.OrderList[Index].Status); %> </td>
-
-                                </tr>
-                                <%
-                                  Index++;
-                            }
-
-                            %>
-                    </tbody>
-
-                </table>
             </article>
         </section>
 
