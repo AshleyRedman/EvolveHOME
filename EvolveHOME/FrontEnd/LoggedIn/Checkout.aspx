@@ -2,6 +2,14 @@
 <%@ Import Namespace="ClassControlLib" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
 
 <script runat="server">
 
@@ -10,6 +18,7 @@
         if (Session["user"] != null)
         {
             //lblHidden.Visible = true;
+
         }
         else
         {
@@ -20,6 +29,7 @@
 
     protected void btnAddOrder_Click(object sender, EventArgs e)
     {
+
         ClassControlLib.clsHomeOrderCollection HomeOrder = new ClassControlLib.clsHomeOrderCollection();
 
         string Username = Session["user"].ToString();
@@ -40,6 +50,7 @@
 
         if (OK == true)
         {
+            //Find data to add to order
             HomeOrder.ThisOrder.Username = Username;
             HomeOrder.ThisOrder.DeliveryDate = DeliveryDate;
             HomeOrder.ThisOrder.Cart = Cart;
@@ -47,8 +58,41 @@
             HomeOrder.ThisOrder.CardNumber = CardNumber;
             HomeOrder.ThisOrder.ExpireDate = ExpireDate;
             HomeOrder.ThisOrder.CVC = CVC;
-
+            // add the order to the DB
             HomeOrder.Add();
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EvolveConnectionString"].ConnectionString);
+            {
+                //Send Confirmation Email to user upon success
+                //Find Usera Email
+                string UserEmail = "select Email from tblCustomer where Username ='"+ Username + "'";
+                SqlCommand queryEmail = new SqlCommand(UserEmail, con);
+                con.Open();
+                string FoundEmail = queryEmail.ExecuteScalar().ToString();
+                con.Close();
+
+
+                SmtpClient smtpClient = new SmtpClient();
+
+                smtpClient.Port = 587;
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new NetworkCredential("evolvesystmsltd@gmail.com", "ComputingBSC123");
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                MailMessage mail = new MailMessage();
+
+                //Set Email message with body
+                mail.From = new MailAddress("evolvesystemsltd@gmail.com");
+                mail.To.Add(new MailAddress(FoundEmail));
+                mail.CC.Add(new MailAddress("evolvesystemsltd@gmail.com"));
+                mail.Subject = "Purchase Confirmation!";
+                mail.IsBodyHtml = true;
+                mail.Body = "<h1>Thank you! " + Username + "</h1> <br /> <p>Your order has been accepted</p> <br /> <p>Your Order will be delivery on "+ DeliveryDate +" </p> <br /><p>Below is a review of your order</p> <br /> " + Cart+ "";
+
+
+                smtpClient.Send(mail);
+            }
+
+            //Once order is success, redirect to confirmation page
             Response.Redirect("OrderConfirmation.aspx");
             //lblError.Text = "Successfully ordered";
             //Response.Redirect("OrderSummary.aspx");
