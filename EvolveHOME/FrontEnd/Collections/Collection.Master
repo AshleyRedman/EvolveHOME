@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Collection.master.cs" Inherits="FrontEnd.Collections.Collection" %>
+
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user"] == null)
+        {
+            btnLogOut.Visible = false;
+            btnCheckout.Visible = false;
+        }
+        else
+        {
+            // Do whatever you were going to do.
+            lblUsername.Text = "Your Profile:  " + "<span>" + Session["User"].ToString() + "</span>";
+            btnLogInLink.Visible = false;
+            btnSignUpLink.Visible = false;
+            btnLogOut.Visible = true;
+            btnCheckout.Visible = true;
+        }
+    }
+
+    protected void btnLogInLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../Login.aspx");
+    }
+    protected void btnSignUpLink_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../SignUp.aspx");
+    }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        Session.Remove("user");
+        Response.Redirect("../Default.aspx");
+    }
+    protected void btnCheckout_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../LoggedIn/Basket.aspx");
+    }
+
+</script>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- charser id-->
+	<meta charset="utf-8"/>
+    <!-- View Port ID -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--Style Sheet Link -->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <!--Favicon Link Link -->
+    <link rel="shortcut icon" href="../media/img/favicon.ico" />
+
+    
+</head>
+<body>
+    <form runat="server">
+    <header>
+        <a href="../Default.aspx"><h1 id="logo">eVolve HOME</h1></a>
+        <img src="../media/img/ham.svg" id="menu" alt="menubutton"/>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../AllProducts.aspx">All Products</a></li>
+                <li><a href="../Collections.aspx">Collections</a></li>
+                <li><asp:Button ID="btnLogInLink" runat="server" Text="LogIn" OnClick="btnLogInLink_Click" /></li>
+                <li><asp:Button ID="btnSignUpLink" runat="server" Text="SignUp" OnClick="btnSignUpLink_Click" /></li>
+                <li><asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" /></li>
+                <li><asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click"/></li>
+                <li><a href="../LoggedIn/CustomerProfile.aspx"><asp:Label runat="server" ID="lblUsername"></asp:Label></a></li>
+            </ul>
+            
+            
+        </nav>
+    </header>
+    <main>
+    <asp:ContentPlaceHolder id="head" runat="server">
+
+    
+    </asp:ContentPlaceHolder>
+    </main>
+    <footer>
+    <a href="../Contact.aspx">Contact Us</a>
+    <a href="../Social.aspx">Social</a>
+    <a href="../StoreLocation.aspx">Store Locator</a>
+    <small>Ashley Redman 2017</small>
+    </footer>
+    </form>
+
+</body>
+</html>

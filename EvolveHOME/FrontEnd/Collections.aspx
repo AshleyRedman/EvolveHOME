@@ -3,25 +3,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <section class="collections">
         <figure id="collection-1">
-            <figcaption>Living Space</figcaption>
+            <a href="Collections/LivingSpace.aspx">
+                <figcaption>Living Space</figcaption>
+            </a>
         </figure>
-        <figure id="collection-2">
+        <a href="Collections/Bedroom.aspx"><figure id="collection-2">
             <figcaption>Bedroom</figcaption>
-        </figure>
+        </figure></a>
         <figure id="collection-3">
             <figcaption>Kitchen</figcaption>
-        </figure>
+        </figure></a>
     </section>
     <section class="collections">
-        <figure id="collection-4">
+        <a href="Collections/Bathroom.aspx"><figure id="collection-4">
             <figcaption>Bathroom</figcaption>
-        </figure>
-        <figure id="collection-5">
+        </figure></a>
+        <a href="Collections/Garden.aspx"><figure id="collection-5">
             <figcaption>Garden</figcaption>
-        </figure>
-        <figure id="collection-6">
+        </figure></a>
+        <a href="Collections/Office.aspx"><figure id="collection-6">
             <figcaption>Office</figcaption>
-        </figure>
+        </figure></a>
     </section>
 
 

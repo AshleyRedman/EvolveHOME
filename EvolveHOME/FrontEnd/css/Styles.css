@@ -566,6 +566,10 @@ small {
     justify-content: center;
     align-items: center;
 }
+.collections figure a {
+    text-decoration: none;
+
+}
 .collections figcaption {
     color: #fff;
     font-size: 3em;
@@ -596,8 +600,26 @@ small {
 #collection-6 {
     background-image: url('../media/img/collections/office.jpeg');
 }
-/* Styles for the contacts us page */
 
+.CollectionTable {
+    text-align: center;
+    width: 100%;
+    border: 0;
+    border-style: none;
+    border-collapse:collapse;
+    overflow:auto;
+}
+
+
+.CollectionTable img {
+    width: 150px;
+    height: 150px;
+}
+
+.CollectionBoundField {
+    height: 150px;
+}
+/* Styles for the contacts us page */
 #contact-area {
     height: 600px;
 }

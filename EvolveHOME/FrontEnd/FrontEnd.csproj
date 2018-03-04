@@ -66,12 +66,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Collections\Bathroom.aspx" />
+    <Content Include="Collections\Bedroom.aspx" />
+    <Content Include="Collections\Garden.aspx" />
+    <Content Include="Collections\Kitchen.aspx" />
+    <Content Include="Collections\LivingSpace.aspx" />
+    <Content Include="Collections\Office.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\jquery3.2.1.js" />
     <Content Include="js\maps.js" />
     <Content Include="js\shoppingCart.js" />
     <Content Include="LoggedIn\CustomerProfile.aspx" />
     <Content Include="LoggedIn\LoggedIm.Master" />
+    <Content Include="Collections\Collection.Master" />
     <None Include="packages.config" />
     <Content Include="LoggedIn\OrderConfirmation.aspx" />
     <Content Include="LogIn.aspx" />
@@ -103,6 +110,55 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Bathroom.aspx.cs">
+      <DependentUpon>Bathroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Bathroom.aspx.designer.cs">
+      <DependentUpon>Bathroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Bedroom.aspx.cs">
+      <DependentUpon>Bedroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Bedroom.aspx.designer.cs">
+      <DependentUpon>Bedroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Collection.Master.cs">
+      <DependentUpon>Collection.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Collection.Master.designer.cs">
+      <DependentUpon>Collection.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Garden.aspx.cs">
+      <DependentUpon>Garden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Garden.aspx.designer.cs">
+      <DependentUpon>Garden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Kitchen.aspx.cs">
+      <DependentUpon>Kitchen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Kitchen.aspx.designer.cs">
+      <DependentUpon>Kitchen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\LivingSpace.aspx.cs">
+      <DependentUpon>LivingSpace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\LivingSpace.aspx.designer.cs">
+      <DependentUpon>LivingSpace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collections\Office.aspx.cs">
+      <DependentUpon>Office.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collections\Office.aspx.designer.cs">
+      <DependentUpon>Office.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
